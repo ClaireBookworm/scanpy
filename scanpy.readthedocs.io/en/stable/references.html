@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>References &mdash; Scanpy 1.8.2 documentation</title>
+
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.css"/>
+
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/scanpy.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="_static/typehints.css" type="text/css" />
+      <link rel="stylesheet" href="https://assets.readthedocs.com/css/badge_only.css" type="text/css" />
+    <link rel="canonical" href="https://scanpy.readthedocs.io/en/stable/references.html" />
+
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://assets.readthedocs.com/javascript/readthedocs-doc-embed.js"></script>
+    <script src="_static/js/theme.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => docsearch({
+    apiKey: 'fa4304eb95d2134997e3729553a674b2',
+    indexName: 'scanpy',
+    inputSelector: '#rtd-search-form > input[name="q"]',
+    algoliaOptions: { facetFilters: ['version:latest'] },
+    debug: false,
+  }))
+</script>
+
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Contributors" href="contributors.html" />
+ 
+
+
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="https://assets.readthedocs.com/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.com", "build_date": "2021-11-03T17:54:04Z", "builder": "sphinx", "canonical_url": null, "commit": "8736fc3b", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-2", "language": "en", "page": "references", "programming_language": "py", "project": "icb-scanpy", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "scanpydoc", "user_analytics_code": "", "version": "stable"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.com/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html">
+            <img src="_static/Scanpy_Logo_BrightFG.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage-principles.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="external.html">External API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes/index.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/index.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Scanpy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>References</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/theislab/scanpy/blob/8736fc3b02a6af3b7214481c2cf78a3f8f5e06bd/docs/references.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h1>
+<dl class="citation">
+<dt class="label" id="amid19"><span class="brackets">Amid19</span></dt>
+<dd><p>Amid &amp; Warmuth (2019),
+<em>TriMap: Large-scale Dimensionality Reduction Using Triplets</em>,
+<a class="reference external" href="https://arxiv.org/abs/1910.00204">arXiv</a>.</p>
+</dd>
+<dt class="label" id="amir13"><span class="brackets">Amir13</span></dt>
+<dd><p>Amir <em>et al.</em> (2013),
+<em>viSNE enables visualization of high dimensional single-cell data and reveals phenotypic heterogeneity of leukemia</em>,
+<a class="reference external" href="https://doi.org/10.1038/nbt.2594">Nature Biotechnology</a>.</p>
+</dd>
+<dt class="label" id="angerer16"><span class="brackets">Angerer16</span></dt>
+<dd><p>Angerer <em>et al.</em> (2016),
+<em>destiny – diffusion maps for large-scale single-cell data in R</em>,
+<a class="reference external" href="https://doi.org/10.1093/bioinformatics/btv715">Bioinformatics</a>.</p>
+</dd>
+<dt class="label" id="bernstein20"><span class="brackets">Bernstein20</span></dt>
+<dd><p>Bernstein <em>et al.</em> (2020),
+<em>Solo: Doublet Identification in Single-Cell RNA-Seq via Semi-Supervised Deep Learning</em>,
+<a class="reference external" href="https://doi.org/10.1016/j.cels.2020.05.010">Cell Systems</a>.</p>
+</dd>
+<dt class="label" id="blondel08"><span class="brackets">Blondel08</span></dt>
+<dd><p>Blondel <em>et al.</em> (2008),
+<em>Fast unfolding of communities in large networks</em>,
+<a class="reference external" href="https://doi.org/10.1088/1742-5468/2008/10/P10008">J. Stat. Mech.</a>.</p>
+</dd>
+<dt class="label" id="chippada18"><span class="brackets">Chippada18</span></dt>
+<dd><p><em>ForceAtlas2 for Python and NetworkX</em>,
+<a class="reference external" href="https://github.com/bhargavchippada/forceatlas2">GitHub</a>.</p>
+</dd>
+<dt class="label" id="coifman05"><span class="brackets">Coifman05</span></dt>
+<dd><p>Coifman <em>et al.</em> (2005),
+<em>Geometric diffusions as a tool for harmonic analysis and structure definition of data: Diffusion maps</em>,
+<a class="reference external" href="https://doi.org/10.1038/nmeth.3971">PNAS</a>.</p>
+</dd>
+<dt class="label" id="csardi06"><span class="brackets">Csardi06</span></dt>
+<dd><p>Csardi <em>et al.</em> (2006),
+<em>The igraph software package for complex network research</em>,
+<a class="reference external" href="http://igraph.org">InterJournal Complex Systems</a>.</p>
+</dd>
+<dt class="label" id="eraslan18"><span class="brackets">Eraslan18</span></dt>
+<dd><p>Eraslan and Simon <em>et al.</em> (2018),
+<em>Single cell RNA-seq denoising using a deep count autoencoder</em>,
+<a class="reference external" href="https://doi.org/10.1101/300681">bioRxiv</a>.</p>
+</dd>
+<dt class="label" id="ester96"><span class="brackets">Ester96</span></dt>
+<dd><p>Ester <em>et al.</em> (1996),
+<em>A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise</em>,
+<a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.121.9220">Proceedings of the 2nd International Conference on Knowledge Discovery and Data Mining,
+Portland, OR</a>.</p>
+</dd>
+<dt class="label" id="eulenberg17"><span class="brackets">Eulenberg17</span></dt>
+<dd><p>Eulenberg <em>et al.</em> (2017),
+<em>Reconstructing cell cycle and disease progression using deep learning</em>
+<a class="reference external" href="https://doi.org/10.1101/081364">Nature Communications</a>.</p>
+</dd>
+<dt class="label" id="fechtner18"><span class="brackets">Fechtner18</span></dt>
+<dd><p><em>PyPairs</em>,
+<a class="reference external" href="https://github.com/rfechtner/pypairs">GitHub</a>.</p>
+</dd>
+<dt class="label" id="fruchterman91"><span class="brackets">Fruchterman91</span></dt>
+<dd><p>Fruchterman &amp; Reingold (1991),
+<em>Graph drawing by force-directed placement</em>,
+<a class="reference external" href="http://doi.org:10.1002/spe.4380211102">Software: Practice &amp; Experience</a>.</p>
+</dd>
+<dt class="label" id="gardner00"><span class="brackets">Gardner00</span></dt>
+<dd><p>Gardner <em>et al.</em>, (2000)
+<em>Construction of a genetic toggle switch in Escherichia coli</em>,
+<a class="reference external" href="https://doi.org/10.1038/35002131">Nature</a>.</p>
+</dd>
+<dt class="label" id="hagberg08"><span class="brackets">Hagberg08</span></dt>
+<dd><p>Hagberg <em>et al.</em> (2008),
+<em>Exploring Network Structure, Dynamics, and Function using NetworkX</em>,
+<a class="reference external" href="http://conference.scipy.org/proceedings/SciPy2008/paper_2/">Scipy Conference</a>.</p>
+</dd>
+<dt class="label" id="hastie09"><span class="brackets">Hastie09</span></dt>
+<dd><p>Hastie <em>et al.</em> (2009),
+<em>The Elements of Statistical Learning</em>,
+<a class="reference external" href="https://web.stanford.edu/~hastie/ElemStatLearn/">Springer</a>.</p>
+</dd>
+<dt class="label" id="haghverdi15"><span class="brackets">Haghverdi15</span></dt>
+<dd><p>Haghverdi <em>et al.</em> (2015),
+<em>Diffusion maps for high-dimensional single-cell analysis of differentiation data</em>,
+<a class="reference external" href="https://doi.org/10.1093/bioinformatics/btv325">Bioinformatics</a>.</p>
+</dd>
+<dt class="label" id="haghverdi16"><span class="brackets">Haghverdi16</span></dt>
+<dd><p>Haghverdi <em>et al.</em> (2016),
+<em>Diffusion pseudotime robustly reconstructs branching cellular lineages</em>,
+<a class="reference external" href="https://doi.org/10.1038/nmeth.3971">Nature Methods</a>.</p>
+</dd>
+<dt class="label" id="haghverdi18"><span class="brackets">Haghverdi18</span></dt>
+<dd><p>Haghverdi <em>et al.</em> (2018),
+<em>Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors</em>,
+<a class="reference external" href="https://doi.org/10.1038/nbt.4091">Nature Biotechnology</a>.</p>
+</dd>
+<dt class="label" id="hie19"><span class="brackets">Hie19</span></dt>
+<dd><p>Hie <em>et al.</em> (2019),
+<em>Efficient integration of heterogeneous single-cell transcriptomes using Scanorama</em>,
+<a class="reference external" href="https://doi.org/10.1038/s41587-019-0113-3">Nature Biotechnology</a>.</p>
+</dd>
+<dt class="label" id="huber15"><span class="brackets">Huber15</span></dt>
+<dd><p>Huber <em>et al.</em> (2015),
+<em>Orchestrating high-throughput genomic analysis with Bioconductor</em>,
+<a class="reference external" href="https://doi.org/10.1038/nmeth.3252">Nature Methods</a>.</p>
+</dd>
+<dt class="label" id="islam11"><span class="brackets">Islam11</span></dt>
+<dd><p>Islam <em>et al.</em> (2011),
+<em>Characterization of the single-cell transcriptional landscape by highly multiplex RNA-seq</em>,
+<a class="reference external" href="https://doi.org/10.1101/gr.110882.110">Genome Research</a>.</p>
+</dd>
+<dt class="label" id="jacomy14"><span class="brackets">Jacomy14</span></dt>
+<dd><p>Jacomy <em>et al.</em> (2014),
+<em>ForceAtlas2, a Continuous Graph Layout Algorithm for Handy Network Visualization Designed for the Gephi Software</em>
+<a class="reference external" href="https://doi.org/10.1371/journal.pone.0098679">PLOS One</a>.</p>
+</dd>
+<dt class="label" id="johnson07"><span class="brackets">Johnson07</span></dt>
+<dd><p>Johnson, Li &amp; Rabinovic (2007),
+<em>Adjusting batch effects in microarray expression data using empirical Bayes methods</em>,
+<a class="reference external" href="https://doi.org/10.1093/biostatistics/kxj037">Biostatistics</a>.</p>
+</dd>
+<dt class="label" id="kang18"><span class="brackets">Kang18</span></dt>
+<dd><p>Kang <em>et al.</em> (2018),
+<em>Python Implementation of MNN correct</em>,
+<a class="reference external" href="https://github.com/chriscainx/mnnpy">GitHub</a>.</p>
+</dd>
+<dt class="label" id="korunsky19"><span class="brackets">Korunsky19</span></dt>
+<dd><p>Korunsky <em>et al.</em> (2019),
+<em>Fast, sensitive and accurate integration of single-cell data with Harmony</em>,
+<code class="docutils literal notranslate"><span class="pre">Nature</span> <span class="pre">Methods</span> <span class="pre">&lt;https://doi.org/10.1038/s41592-019-0619-0&gt;</span></code> __.</p>
+</dd>
+<dt class="label" id="krumsiek10"><span class="brackets">Krumsiek10</span></dt>
+<dd><p>Krumsiek <em>et al.</em> (2010),
+<em>Odefy – From discrete to continuous models</em>,
+<a class="reference external" href="https://doi.org/10.1186/1471-2105-11-233">BMC Bioinformatics</a>.</p>
+</dd>
+<dt class="label" id="krumsiek11"><span class="brackets">Krumsiek11</span></dt>
+<dd><p>Krumsiek <em>et al.</em> (2011),
+<em>Hierarchical Differentiation of Myeloid Progenitors Is Encoded in the Transcription Factor Network</em>,
+<a class="reference external" href="https://doi.org/10.1371/journal.pone.0022649">PLoS ONE</a>.</p>
+</dd>
+<dt class="label" id="lambiotte09"><span class="brackets">Lambiotte09</span></dt>
+<dd><p>Lambiotte <em>et al.</em> (2009)
+<em>Laplacian Dynamics and Multiscale Modular Structure in Networks</em>
+<a class="reference external" href="https://arxiv.org/abs/0812.1770">arXiv</a>.</p>
+</dd>
+<dt class="label" id="leek12"><span class="brackets">Leek12</span></dt>
+<dd><p>Leek <em>et al.</em> (2012),
+<em>sva: Surrogate Variable Analysis. R package</em>
+<a class="reference external" href="https://doi.org/10.18129/B9.bioc.sva">Bioconductor</a>.</p>
+</dd>
+<dt class="label" id="levine15"><span class="brackets">Levine15</span></dt>
+<dd><p>Levine <em>et al.</em> (2015),
+<em>Data-Driven Phenotypic Dissection of AML Reveals Progenitor–like Cells that Correlate with Prognosis</em>,
+<a class="reference external" href="https://doi.org/10.1016/j.cell.2015.05.047">Cell</a>.</p>
+</dd>
+<dt class="label" id="lopez18"><span class="brackets">Lopez18</span></dt>
+<dd><p>Lopez <em>et al.</em> (2018),
+<em>Deep generative modeling for single-cell transcriptomics</em>
+<a class="reference external" href="https://doi.org/10.1038/s41592-018-0229-2">Nature Methods</a>.</p>
+</dd>
+<dt class="label" id="maaten08"><span class="brackets">Maaten08</span></dt>
+<dd><p>Maaten &amp; Hinton (2008),
+<em>Visualizing data using t-SNE</em>,
+<a class="reference external" href="http://www.jmlr.org/papers/v9/vandermaaten08a.html">JMLR</a>.</p>
+</dd>
+<dt class="label" id="mccarthy17"><span class="brackets">McCarthy17</span></dt>
+<dd><p>McCarthy <em>et al.</em> (2017),
+<em>scater: Single-cell analysis toolkit for gene expression data in R</em>,
+<a class="reference external" href="https://doi.org/10.1093/bioinformatics/btw777">Bioinformatics</a>.</p>
+</dd>
+<dt class="label" id="moon17"><span class="brackets">Moon17</span></dt>
+<dd><p>Moon <em>et al.</em> (2017),
+<em>PHATE: A Dimensionality Reduction Method for Visualizing Trajectory Structures in High-Dimensional Biological Data</em>,
+<a class="reference external" href="http://biorxiv.org/content/early/2017/03/24/120378">BioRxiv</a>.</p>
+</dd>
+<dt class="label" id="satija15"><span class="brackets">Satija15</span></dt>
+<dd><p>Satija <em>et al.</em> (2015),
+<em>Spatial reconstruction of single-cell gene expression data</em>,
+<a class="reference external" href="https://doi.org/10.1038/nbt.3192">Nature Biotechnology</a>.</p>
+</dd>
+<dt class="label" id="manno18"><span class="brackets">Manno18</span></dt>
+<dd><p>La Manno <em>et al.</em> (2018),
+<em>RNA velocity of single cells</em>,
+<a class="reference external" href="https://doi.org/10.1038/s41586-018-0414-6">Nature</a>.</p>
+</dd>
+<dt class="label" id="mcinnes18"><span class="brackets">McInnes18</span></dt>
+<dd><p>McInnes &amp; Healy (2018),
+<em>UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction</em>,
+<a class="reference external" href="https://arxiv.org/abs/1802.03426">arXiv</a>.</p>
+</dd>
+<dt class="label" id="moignard15"><span class="brackets">Moignard15</span></dt>
+<dd><p>Moignard <em>et al.</em> (2015),
+<em>Decoding the regulatory network of early blood development from single-cell gene expression measurements</em>,
+<a class="reference external" href="https://doi.org/10.1038/nbt.3154">Nature Biotechnology</a>.</p>
+</dd>
+<dt class="label" id="murphy12"><span class="brackets">Murphy12</span></dt>
+<dd><p>Murphy (2012,
+<em>Machine Learning: A Probabilisitc Perspective</em>,
+<a class="reference external" href="https://mitpress.mit.edu/books/machine-learning-0">MIT Press</a>.</p>
+</dd>
+<dt class="label" id="ntranos18"><span class="brackets">Ntranos18</span></dt>
+<dd><p>Ntranos <em>et al.</em> (2018),
+<em>Identification of transcriptional signatures for cell types from single-cell RNA-Seq</em>,
+<a class="reference external" href="https://doi.org/10.1101/258566">bioRxiv</a>.</p>
+</dd>
+<dt class="label" id="paul15"><span class="brackets">Paul15</span></dt>
+<dd><p>Paul <em>et al.</em> (2015),
+<em>Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors</em>,
+<a class="reference external" href="https://doi.org/10.1016/j.cell.2015.11.013">Cell</a>.</p>
+</dd>
+<dt class="label" id="pedersen12"><span class="brackets">Pedersen12</span></dt>
+<dd><p>Pedersen (2012),
+<em>Python implementation of ComBat</em>
+<a class="reference external" href="https://github.com/brentp/combat.py">GitHub</a>.</p>
+</dd>
+<dt class="label" id="pedregosa11"><span class="brackets">Pedregosa11</span></dt>
+<dd><p>Pedregosa <em>et al.</em> (2011),
+<em>Scikit-learn: Machine Learning in Python</em>,
+<a class="reference external" href="http://www.jmlr.org/papers/v12/pedregosa11a.html">JMLR</a>.</p>
+</dd>
+<dt class="label" id="polanski19"><span class="brackets">Polanski19</span></dt>
+<dd><p>Polanski <em>et al.</em> (2019),
+<em>BBKNN: fast batch alignment of single cell transcriptomes</em>
+<a class="reference external" href="https://doi.org/10.1093/bioinformatics/btz625">Bioinformatics</a>.</p>
+</dd>
+<dt class="label" id="plass18"><span class="brackets">Plass18</span></dt>
+<dd><p>Plass (2018),
+<em>Cell type atlas and lineage tree of a whole complex animal by single-cell transcriptomics</em>
+<a class="reference external" href="https://doi.org/10.1126/science.aaq1723">Science</a>.</p>
+</dd>
+<dt class="label" id="scialdone15"><span class="brackets">Scialdone15</span></dt>
+<dd><p>Scialdone <em>et al.</em> (2015),
+<em>Computational assignment of cell-cycle stage from single-cell transcriptome data</em>
+<a class="reference external" href="https://doi.org/10.1016/j.ymeth.2015.06.021">Methods</a>.</p>
+</dd>
+<dt class="label" id="setty16"><span class="brackets">Setty16</span></dt>
+<dd><p>Setty <em>et al.</em> (2016),
+<em>Wishbone identifies bifurcating developmental trajectories from single-cell data</em>
+<a class="reference external" href="https://doi.org/10.1038/nbt.3569">Nature Biotechnology</a>.</p>
+</dd>
+<dt class="label" id="setty18"><span class="brackets">Setty18</span></dt>
+<dd><p>Setty <em>et al.</em> (2018),
+<em>Palantir characterizes cell fate continuities in human hematopoiesis</em>
+<a class="reference external" href="https://www.nature.com/articles/s41587-019-0068-4">Nature Biotechnology</a>.</p>
+</dd>
+<dt class="label" id="stuart19"><span class="brackets">Stuart19</span></dt>
+<dd><p>Stuart <em>et al.</em> (2019),
+<em>Comprehensive integration of single-cell data</em>
+<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0092867419305598">Cell</a>.</p>
+</dd>
+<dt class="label" id="svensson20"><span class="brackets">Svensson20</span></dt>
+<dd><p>Svensson <em>et al.</em> (2020),
+<em>Interpretable factor models of single-cell RNA-seq via variational autoencoders</em>
+<a class="reference external" href="https://doi.org/10.1093/bioinformatics/btaa169">Bioinformatics</a>.</p>
+</dd>
+<dt class="label" id="nowotschin18i"><span class="brackets">Nowotschin18i</span></dt>
+<dd><p>Nowotschin <em>et al.</em> (2018),
+<em>The emergent landscape of the mouse gut endoderm at single-cell resolution</em>
+<a class="reference external" href="https://www.nature.com/articles/s41586-019-1127-1">Nature</a>.</p>
+</dd>
+<dt class="label" id="traag17"><span class="brackets">Traag17</span></dt>
+<dd><p>(2017),
+<em>Louvain</em>,
+<a class="reference external" href="https://doi.org/10.5281/zenodo.35117">GitHub</a>.</p>
+</dd>
+<dt class="label" id="tarashansky19"><span class="brackets">Tarashansky19</span></dt>
+<dd><p>Tarashansky (2019),
+<em>Self-assembling manifolds in single-cell RNA sequencing data</em>,
+<a class="reference external" href="https://doi.org/10.7554/eLife.48994">Elife</a>.</p>
+</dd>
+<dt class="label" id="traag18"><span class="brackets">Traag18</span></dt>
+<dd><p>Traag <em>et al.</em> (2018),
+<em>From Louvain to Leiden: guaranteeing well-connected communities</em>
+<a class="reference external" href="https://arxiv.org/abs/1810.08473">arXiv</a>.</p>
+</dd>
+<dt class="label" id="ulyanov16"><span class="brackets">Ulyanov16</span></dt>
+<dd><p>Ulyanov (2016),
+<em>Multicore t-SNE</em>,
+<a class="reference external" href="https://github.com/DmitryUlyanov/Multicore-TSNE">GitHub</a>.</p>
+</dd>
+<dt class="label" id="vandijk18"><span class="brackets">vanDijk18</span></dt>
+<dd><p>Van Dijk D <em>et al.</em> (2018),
+<em>Recovering Gene Interactions from Single-Cell Data Using Data Diffusion</em>,
+<a class="reference external" href="https://www.cell.com/cell/abstract/S0092-8674(18)30724-4">Cell</a>.</p>
+</dd>
+<dt class="label" id="weinreb17"><span class="brackets">Weinreb17</span></dt>
+<dd><p>Weinreb <em>et al.</em> (2016),
+<em>SPRING: a kinetic interface for visualizing high dimensional single-cell expression data</em>,
+<a class="reference external" href="https://doi.org/10.1101/090332">bioRxiv</a>.</p>
+</dd>
+<dt class="label" id="wittmann09"><span class="brackets">Wittmann09</span></dt>
+<dd><p>Wittmann <em>et al.</em> (2009),
+<em>Transforming Boolean models to continuous models: methodology and application to T-cell receptor signaling</em>,
+<a class="reference external" href="https://doi.org/10.1186/1752-0509-3-98">BMC Systems Biology</a>.</p>
+</dd>
+<dt class="label" id="waskom16"><span class="brackets">Waskom16</span></dt>
+<dd><p>Waskom <em>et al.</em> (2017),
+<em>Seaborn</em>,
+<a class="reference external" href="https://doi.org/10.5281/zenodo.54844">Zenodo</a>.</p>
+</dd>
+<dt class="label" id="wolf18"><span class="brackets">Wolf18</span></dt>
+<dd><p>Wolf <em>et al.</em> (2018),
+<em>Scanpy: large-scale single-cell gene expression data analysis</em>,
+<a class="reference external" href="https://doi.org/10.1186/s13059-017-1382-0">Genome Biology</a>.</p>
+</dd>
+<dt class="label" id="wolf19"><span class="brackets">Wolf19</span></dt>
+<dd><p>Wolf <em>et al.</em> (2019),
+<em>PAGA: Graph abstraction reconciles clustering with trajectory inference through a topology preserving map of single cells.</em>
+<a class="reference external" href="https://doi.org/10.1186/s13059-019-1663-x">Genome Biology</a>,
+<a class="reference external" href="https://doi.org/10.1101/208819">bioRxiv</a>.</p>
+</dd>
+<dt class="label" id="wolock19"><span class="brackets">Wolock19</span></dt>
+<dd><p>Wolock <em>et al.</em> (2019),
+<em>BBKNN: fast batch alignment of single cell transcriptomes</em>
+<a class="reference external" href="https://doi.org/10.1016/j.cels.2018.11.005">Cell Systems</a>.</p>
+</dd>
+<dt class="label" id="zheng17"><span class="brackets">Zheng17</span></dt>
+<dd><p>Zheng <em>et al.</em> (2017),
+<em>Massively parallel digital transcriptional profiling of single cells</em>,
+<a class="reference external" href="https://doi.org/10.1038/ncomms14049">Nature Communications</a>.</p>
+</dd>
+<dt class="label" id="zunder15"><span class="brackets">Zunder15</span></dt>
+<dd><p>Zunder <em>et al.</em> (2015),
+<em>A continuous molecular roadmap to iPSC reprogramming through progression analysis of single-cell mass cytometry</em>,
+<a class="reference external" href="https://doi.org/10.1016/j.stem.2015.01.015">Cell Stem Cell</a>.</p>
+</dd>
+</dl>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributors.html" class="btn btn-neutral float-left" title="Contributors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Alex Wolf, Philipp Angerer, Fidel Ramirez, Isaac Virshup, Sergei Rybakov, Gokcen Eraslan, Tom White, Malte Luecken, Davide Cittaro, Tobias Callies, Marius Lange, Andrés R. Muñoz-Rojas..
+      <span class="commit">Revision <code>8736fc3b</code>.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/docsearch/">docsearch</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.com/projects/icb-scanpy/?fromdocs=icb-scanpy">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.com/builds/icb-scanpy/?fromdocs=icb-scanpy">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>scanpy.external.tl.sam &mdash; Scanpy 1.9.0.dev72+g7b22b756 documentation</title>
+
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.css"/>
+
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/scanpy.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/typehints.css" type="text/css" />
+      <link rel="stylesheet" href="https://assets.readthedocs.com/css/badge_only.css" type="text/css" />
+    <link rel="canonical" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.external.tl.sam.html" />
+
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://assets.readthedocs.com/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => docsearch({
+    apiKey: 'fa4304eb95d2134997e3729553a674b2',
+    indexName: 'scanpy',
+    inputSelector: '#rtd-search-form > input[name="q"]',
+    algoliaOptions: {
+      facetFilters: ['version:latest'],
+      hitsPerPage: 10,
+    },
+    debug: false,
+  }))
+</script>
+
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="scanpy.external.tl.phenograph" href="scanpy.external.tl.phenograph.html" />
+    <link rel="prev" title="scanpy.external.tl.trimap" href="scanpy.external.tl.trimap.html" />
+ 
+
+
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="https://assets.readthedocs.com/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.com", "build_date": "2022-03-03T15:00:09Z", "builder": "sphinx", "canonical_url": null, "commit": "7b22b756", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-2", "language": "en", "page": "generated/scanpy.external.tl.sam", "programming_language": "py", "project": "icb-scanpy", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "scanpydoc", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.com/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/Scanpy_Logo_BrightFG.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                latest
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage-principles.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../external.html">External API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../external.html#preprocessing-pp">Preprocessing: PP</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../external.html#tools-tl">Tools: TL</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../external.html#embeddings">Embeddings</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="scanpy.external.tl.phate.html">scanpy.external.tl.phate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanpy.external.tl.palantir.html">scanpy.external.tl.palantir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanpy.external.tl.trimap.html">scanpy.external.tl.trimap</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">scanpy.external.tl.sam</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../external.html#clustering-and-trajectory-inference">Clustering and trajectory inference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../external.html#gene-scores-cell-cycle">Gene scores, Cell cycle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../external.html#plotting-pl">Plotting: PL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../external.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes/index.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/index.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scanpy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../external.html">External API</a> &raquo;</li>
+      <li>scanpy.external.tl.sam</li>
+      <li class="wy-breadcrumbs-aside">
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/theislab/scanpy/tree/master/scanpy/external/tl/_sam.py#L17-L225" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scanpy-external-tl-sam">
+<h1>scanpy.external.tl.sam<a class="headerlink" href="#scanpy-external-tl-sam" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="scanpy.external.tl.sam">
+<span class="sig-prename descclassname"><span class="pre">scanpy.external.tl.</span></span><span class="sig-name descname"><span class="pre">sam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_norm_avg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'correlation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'StandardScaler'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_pcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sparse_pca</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">150</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_genes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'umap'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scanpy.external.tl.sam" title="Permalink to this definition"></a></dt>
+<dd><p>Self-Assembling Manifolds single-cell RNA sequencing analysis tool <a class="reference internal" href="../references.html#tarashansky19" id="id1"><span>[Tarashansky19]</span></a>.</p>
+<p>SAM iteratively rescales the input gene expression matrix to emphasize
+genes that are spatially variable along the intrinsic manifold of the data.
+It outputs the gene weights, nearest neighbor matrix, and a 2D projection.</p>
+<p>The AnnData input should contain unstandardized, non-negative values.
+Preferably, the data should be log-normalized and no genes should be filtered out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>k</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">20</span></code>)</dt><dd><p>The number of nearest neighbors to identify for each cell.</p>
+</dd>
+<dt><strong>distance</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">'correlation'</span></code>)</dt><dd><p>The distance metric to use when identifying nearest neighbors.
+Can be any of the distance metrics supported by
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html#scipy.spatial.distance.pdist" title="(in SciPy v1.8.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pdist()</span></code></a>.</p>
+</dd>
+<dt><strong>max_iter</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">10</span></code>)</dt><dd><p>The maximum number of iterations SAM will run.</p>
+</dd>
+<dt><strong>projection</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code></a>[‘umap’, ‘tsne’, ‘None’] (default: <code class="docutils literal notranslate"><span class="pre">'umap'</span></code>)</dt><dd><p>If ‘tsne’, generates a t-SNE embedding. If ‘umap’, generates a UMAP
+embedding. If ‘None’, no embedding will be generated.</p>
+</dd>
+<dt><strong>standardization</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code></a>[‘Normalizer’, ‘StandardScaler’, ‘None’] (default: <code class="docutils literal notranslate"><span class="pre">'StandardScaler'</span></code>)</dt><dd><p>If ‘Normalizer’, use sklearn.preprocessing.Normalizer, which
+normalizes expression data prior to PCA such that each cell has
+unit L2 norm. If ‘StandardScaler’, use
+sklearn.preprocessing.StandardScaler, which normalizes expression
+data prior to PCA such that each gene has zero mean and unit
+variance. Otherwise, do not normalize the expression data. We
+recommend using ‘StandardScaler’ for large datasets with many
+expected cell types and ‘Normalizer’ otherwise. If ‘None’, no
+transformation is applied.</p>
+</dd>
+<dt><strong>num_norm_avg</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">50</span></code>)</dt><dd><p>The top ‘num_norm_avg’ dispersions are averaged to determine the
+normalization factor when calculating the weights. This prevents
+genes with large spatial dispersions from skewing the distribution
+of weights.</p>
+</dd>
+<dt><strong>weight_pcs</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</dt><dd><p>If True, scale the principal components by their eigenvalues. In
+datasets with many expected cell types, setting this to False might
+improve the resolution as these cell types might be encoded by lower-
+variance principal components.</p>
+</dd>
+<dt><strong>sparse_pca</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</dt><dd><p>If True, uses an implementation of PCA that accepts sparse inputs.
+This way, we no longer need a temporary dense copy of the sparse data.
+However, this implementation is slower and so is only worth using when
+memory constraints become noticeable.</p>
+</dd>
+<dt><strong>n_pcs</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>] (default: <code class="docutils literal notranslate"><span class="pre">150</span></code>)</dt><dd><p>Determines the number of top principal components selected at each
+iteration of the SAM algorithm. If None, this number is chosen
+automatically based on the size of the dataset. If weight_pcs is
+set to True, this parameter primarily affects the runtime of the SAM
+algorithm (more PCs = longer runtime).</p>
+</dd>
+<dt><strong>n_genes</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>] (default: <code class="docutils literal notranslate"><span class="pre">3000</span></code>)</dt><dd><p>Determines the number of top SAM-weighted genes to use at each iteration
+of the SAM algorithm. If None, this number is chosen automatically
+based on the size of the dataset. This parameter primarily affects
+the runtime of the SAM algorithm (more genes = longer runtime). For
+extremely homogeneous datasets, decreasing <code class="docutils literal notranslate"><span class="pre">n_genes</span></code> may improve
+clustering resolution.</p>
+</dd>
+<dt><strong>inplace</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</dt><dd><p>Set fields in <code class="docutils literal notranslate"><span class="pre">adata</span></code> if True. Otherwise, returns a copy.</p>
+</dd>
+<dt><strong>verbose</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</dt><dd><p>If True, displays SAM log statements.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>, <a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a>]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>sam_obj if inplace is True or (sam_obj,AnnData) otherwise</p>
+<dl class="simple">
+<dt>adata - AnnData</dt><dd><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">.var['weights']</span></code></dt><dd><p>SAM weights for each gene.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.var['spatial_dispersions']</span></code></dt><dd><p>Spatial dispersions for each gene (these are used to compute the
+SAM weights)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.uns['sam']</span></code></dt><dd><p>Dictionary of SAM-specific outputs, such as the parameters
+used for preprocessing (‘preprocess_args’) and running
+(‘run_args’) SAM.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.uns['neighbors']</span></code></dt><dd><p>A dictionary with key ‘connectivities’ containing the kNN adjacency
+matrix output by SAM. If built-in scanpy dimensionality reduction
+methods are to be used using the SAM-output AnnData, users
+should recompute the neighbors using <code class="docutils literal notranslate"><span class="pre">.obs['X_pca']</span></code> with
+<code class="docutils literal notranslate"><span class="pre">scanpy.pp.neighbors</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.obsm['X_pca']</span></code></dt><dd><p>The principal components output by SAM.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.obsm['X_umap']</span></code></dt><dd><p>The UMAP projection output by SAM.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.layers['X_disp']</span></code></dt><dd><p>The expression matrix used for nearest-neighbor averaging.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">.layers['X_knn_avg']</span></code></dt><dd><p>The nearest-neighbor-averaged expression data used for computing the
+spatial dispersions of genes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scanpy.external</span> <span class="k">as</span> <span class="nn">sce</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
+</pre></div>
+</div>
+<p><strong>* Running SAM *</strong></p>
+<p>Assuming we are given an AnnData object called <code class="docutils literal notranslate"><span class="pre">adata</span></code>, we can run the SAM
+algorithm as follows:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sam_obj</span> <span class="o">=</span> <span class="n">sce</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">sam</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The input AnnData object should contain unstandardized, non-negative
+expression values. Preferably, the data should be log-normalized and no
+genes should be filtered out.</p>
+<p>Please see the documentation for a description of all available parameters.</p>
+<p>For more detailed tutorials, please visit the original Github repository:
+<a class="reference external" href="https://github.com/atarashansky/self-assembling-manifold/tree/master/tutorial">https://github.com/atarashansky/self-assembling-manifold/tree/master/tutorial</a></p>
+<p><strong>* Plotting *</strong></p>
+<p>To visualize the output, we can use:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sce</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">sam</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;X_umap&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sce.pl.sam</span></code> accepts all keyword arguments used in the
+<code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.scatter</span></code> function.</p>
+<p><strong>* SAMGUI *</strong></p>
+<p>SAM comes with the SAMGUI module, a graphical-user interface written with
+<code class="docutils literal notranslate"><span class="pre">Plotly</span></code> and <code class="docutils literal notranslate"><span class="pre">ipythonwidgets</span></code> for interactively exploring and annotating
+the scRNAseq data and running SAM.</p>
+<p>Dependencies can be installed with Anaconda by following the instructions in
+the self-assembling-manifold Github README:
+<a class="reference external" href="https://github.com/atarashansky/self-assembling-manifold">https://github.com/atarashansky/self-assembling-manifold</a></p>
+<p>In a Jupyter notebook, execute the following to launch the interface:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">samalg.gui</span> <span class="kn">import</span> <span class="n">SAMGUI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sam_gui</span> <span class="o">=</span> <span class="n">SAMGUI</span><span class="p">(</span><span class="n">sam_obj</span><span class="p">)</span> <span class="c1"># sam_obj is your SAM object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sam_gui</span><span class="o">.</span><span class="n">SamPlot</span>
+</pre></div>
+</div>
+<p>This can also be enabled in Jupyer Lab by following the instructions in the
+self-assembling-manifold README.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="scanpy.external.tl.trimap.html" class="btn btn-neutral float-left" title="scanpy.external.tl.trimap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scanpy.external.tl.phenograph.html" class="btn btn-neutral float-right" title="scanpy.external.tl.phenograph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, the Scanpy development team..
+      <span class="commit">Revision <code>7b22b756</code>.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.com/projects/icb-scanpy/?fromdocs=icb-scanpy">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.com/builds/icb-scanpy/?fromdocs=icb-scanpy">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

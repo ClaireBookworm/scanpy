@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>API &mdash; Scanpy 1.9.0.dev72+g7b22b756 documentation</title>
+
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.css"/>
+
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/scanpy.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="_static/typehints.css" type="text/css" />
+      <link rel="stylesheet" href="https://assets.readthedocs.com/css/badge_only.css" type="text/css" />
+    <link rel="canonical" href="https://scanpy.readthedocs.io/en/stable/api.html" />
+
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://assets.readthedocs.com/javascript/readthedocs-doc-embed.js"></script>
+    <script src="_static/js/theme.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => docsearch({
+    apiKey: 'fa4304eb95d2134997e3729553a674b2',
+    indexName: 'scanpy',
+    inputSelector: '#rtd-search-form > input[name="q"]',
+    algoliaOptions: {
+      facetFilters: ['version:latest'],
+      hitsPerPage: 10,
+    },
+    debug: false,
+  }))
+</script>
+
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="scanpy.pp.calculate_qc_metrics" href="generated/scanpy.pp.calculate_qc_metrics.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+ 
+
+
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="https://assets.readthedocs.com/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.com", "build_date": "2022-03-03T14:59:58Z", "builder": "sphinx", "canonical_url": null, "commit": "7b22b756", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-2", "language": "en", "page": "api", "programming_language": "py", "project": "icb-scanpy", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "scanpydoc", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.com/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html">
+            <img src="_static/Scanpy_Logo_BrightFG.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                latest
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage-principles.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-scanpy.pp">Preprocessing: <code class="docutils literal notranslate"><span class="pre">pp</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-preprocessing">Basic Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.calculate_qc_metrics.html">scanpy.pp.calculate_qc_metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.filter_cells.html">scanpy.pp.filter_cells</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.filter_genes.html">scanpy.pp.filter_genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.highly_variable_genes.html">scanpy.pp.highly_variable_genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.log1p.html">scanpy.pp.log1p</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.pca.html">scanpy.pp.pca</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.normalize_total.html">scanpy.pp.normalize_total</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.regress_out.html">scanpy.pp.regress_out</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.scale.html">scanpy.pp.scale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.subsample.html">scanpy.pp.subsample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.downsample_counts.html">scanpy.pp.downsample_counts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#recipes">Recipes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.recipe_zheng17.html">scanpy.pp.recipe_zheng17</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.recipe_weinreb17.html">scanpy.pp.recipe_weinreb17</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.recipe_seurat.html">scanpy.pp.recipe_seurat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-effect-correction">Batch effect correction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.combat.html">scanpy.pp.combat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#neighbors">Neighbors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pp.neighbors.html">scanpy.pp.neighbors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scanpy.tl">Tools: <code class="docutils literal notranslate"><span class="pre">tl</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#embeddings">Embeddings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.pca.html">scanpy.tl.pca</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.tsne.html">scanpy.tl.tsne</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.umap.html">scanpy.tl.umap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.draw_graph.html">scanpy.tl.draw_graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.diffmap.html">scanpy.tl.diffmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.embedding_density.html">scanpy.tl.embedding_density</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#clustering-and-trajectory-inference">Clustering and trajectory inference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.leiden.html">scanpy.tl.leiden</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.louvain.html">scanpy.tl.louvain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.dendrogram.html">scanpy.tl.dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.dpt.html">scanpy.tl.dpt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.paga.html">scanpy.tl.paga</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-integration">Data integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.ingest.html">scanpy.tl.ingest</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#marker-genes">Marker genes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.rank_genes_groups.html">scanpy.tl.rank_genes_groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.filter_rank_genes_groups.html">scanpy.tl.filter_rank_genes_groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.marker_gene_overlap.html">scanpy.tl.marker_gene_overlap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gene-scores-cell-cycle">Gene scores, Cell cycle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.score_genes.html">scanpy.tl.score_genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.score_genes_cell_cycle.html">scanpy.tl.score_genes_cell_cycle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulations">Simulations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.tl.sim.html">scanpy.tl.sim</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scanpy.pl">Plotting: <code class="docutils literal notranslate"><span class="pre">pl</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generic">Generic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.scatter.html">scanpy.pl.scatter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.heatmap.html">scanpy.pl.heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.dotplot.html">scanpy.pl.dotplot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.tracksplot.html">scanpy.pl.tracksplot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.violin.html">scanpy.pl.violin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.stacked_violin.html">scanpy.pl.stacked_violin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.matrixplot.html">scanpy.pl.matrixplot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.clustermap.html">scanpy.pl.clustermap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.ranking.html">scanpy.pl.ranking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.dendrogram.html">scanpy.pl.dendrogram</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/classes/scanpy.pl.DotPlot.html">scanpy.pl.DotPlot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/classes/scanpy.pl.MatrixPlot.html">scanpy.pl.MatrixPlot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/classes/scanpy.pl.StackedViolin.html">scanpy.pl.StackedViolin</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#preprocessing">Preprocessing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.highest_expr_genes.html">scanpy.pl.highest_expr_genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.filter_genes_dispersion.html">scanpy.pl.filter_genes_dispersion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/scanpy.pl.highly_variable_genes.html">scanpy.pl.highly_variable_genes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pca">PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id34">Embeddings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#branching-trajectories-and-pseudotime-clustering">Branching trajectories and pseudotime, clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">Marker genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36">Simulations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reading">Reading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read.html">scanpy.read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_10x_h5.html">scanpy.read_10x_h5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_10x_mtx.html">scanpy.read_10x_mtx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_visium.html">scanpy.read_visium</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_h5ad.html">scanpy.read_h5ad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_csv.html">scanpy.read_csv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_excel.html">scanpy.read_excel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_hdf.html">scanpy.read_hdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_loom.html">scanpy.read_loom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_mtx.html">scanpy.read_mtx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_text.html">scanpy.read_text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.read_umi_tools.html">scanpy.read_umi_tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scanpy.get">Get object from <code class="docutils literal notranslate"><span class="pre">AnnData</span></code>: <code class="docutils literal notranslate"><span class="pre">get</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.get.obs_df.html">scanpy.get.obs_df</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.get.var_df.html">scanpy.get.var_df</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.get.rank_genes_groups_df.html">scanpy.get.rank_genes_groups_df</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scanpy.queries">Queries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.queries.biomart_annotations.html">scanpy.queries.biomart_annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.queries.gene_coordinates.html">scanpy.queries.gene_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.queries.mitochondrial_genes.html">scanpy.queries.mitochondrial_genes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.queries.enrich.html">scanpy.queries.enrich</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scanpy.metrics">Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.metrics.confusion_matrix.html">scanpy.metrics.confusion_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.metrics.gearys_c.html">scanpy.metrics.gearys_c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.metrics.morans_i.html">scanpy.metrics.morans_i</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id37">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.Neighbors.html">scanpy.Neighbors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.set_figure_params.html">scanpy.set_figure_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.html">scanpy._settings.ScanpyConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.logging.print_header.html">scanpy.logging.print_header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.logging.print_versions.html">scanpy.logging.print_versions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scanpy.datasets">Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.blobs.html">scanpy.datasets.blobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.ebi_expression_atlas.html">scanpy.datasets.ebi_expression_atlas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.krumsiek11.html">scanpy.datasets.krumsiek11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.moignard15.html">scanpy.datasets.moignard15</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.pbmc3k.html">scanpy.datasets.pbmc3k</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.pbmc3k_processed.html">scanpy.datasets.pbmc3k_processed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.pbmc68k_reduced.html">scanpy.datasets.pbmc68k_reduced</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.paul15.html">scanpy.datasets.paul15</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.toggleswitch.html">scanpy.datasets.toggleswitch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.datasets.visium_sge.html">scanpy.datasets.visium_sge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deprecated-functions">Deprecated functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.pp.filter_genes_dispersion.html">scanpy.pp.filter_genes_dispersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/scanpy.pp.normalize_per_cell.html">scanpy.pp.normalize_per_cell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="external.html">External API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes/index.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/index.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Scanpy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>API</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/theislab/scanpy/blob/master/docs/api.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="module-scanpy"></span><p>Single-Cell Analysis in Python.</p>
+<section id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h1>
+<p>Import Scanpy as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Additional functionality is available in the broader <a class="reference internal" href="ecosystem.html"><span class="doc">ecosystem</span></a>, with some tools being wrapped in the <a class="reference internal" href="external.html#module-scanpy.external" title="scanpy.external"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scanpy.external</span></code></a> module.</p>
+</div>
+<section id="module-scanpy.pp">
+<span id="preprocessing-pp"></span><h2>Preprocessing: <code class="docutils literal notranslate"><span class="pre">pp</span></code><a class="headerlink" href="#module-scanpy.pp" title="Permalink to this headline"></a></h2>
+<p>Filtering of highly-variable genes, batch-effect correction, per-cell normalization, preprocessing recipes.</p>
+<p>Any transformation of the data matrix that is not a <em>tool</em>. Other than <em>tools</em>, preprocessing steps usually don’t return an easily interpretable annotation, but perform a basic transformation on the data matrix.</p>
+<section id="basic-preprocessing">
+<h3>Basic Preprocessing<a class="headerlink" href="#basic-preprocessing" title="Permalink to this headline"></a></h3>
+<p>For visual quality control, see <a class="reference internal" href="generated/scanpy.pl.highest_expr_genes.html#scanpy.pl.highest_expr_genes" title="scanpy.pl.highest_expr_genes"><code class="xref py py-func docutils literal notranslate"><span class="pre">highest_expr_genes()</span></code></a> and
+<a class="reference internal" href="generated/scanpy.pl.filter_genes_dispersion.html#scanpy.pl.filter_genes_dispersion" title="scanpy.pl.filter_genes_dispersion"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter_genes_dispersion()</span></code></a> in <a class="reference internal" href="#module-scanpy.pl" title="scanpy.pl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scanpy.pl</span></code></a>.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.calculate_qc_metrics.html#scanpy.pp.calculate_qc_metrics" title="scanpy.pp.calculate_qc_metrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.calculate_qc_metrics</span></code></a>(adata, *[, …])</p></td>
+<td><p>Calculate quality control metrics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pp.filter_cells.html#scanpy.pp.filter_cells" title="scanpy.pp.filter_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.filter_cells</span></code></a>(data[, min_counts, …])</p></td>
+<td><p>Filter cell outliers based on counts and numbers of genes expressed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.filter_genes.html#scanpy.pp.filter_genes" title="scanpy.pp.filter_genes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.filter_genes</span></code></a>(data[, min_counts, …])</p></td>
+<td><p>Filter genes based on number of cells or counts.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pp.highly_variable_genes.html#scanpy.pp.highly_variable_genes" title="scanpy.pp.highly_variable_genes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.highly_variable_genes</span></code></a>(adata[, layer, …])</p></td>
+<td><p>Annotate highly variable genes <a class="reference internal" href="references.html#satija15" id="id1"><span>[Satija15]</span></a> <a class="reference internal" href="references.html#zheng17" id="id2"><span>[Zheng17]</span></a> <a class="reference internal" href="references.html#stuart19" id="id3"><span>[Stuart19]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.log1p.html#scanpy.pp.log1p" title="scanpy.pp.log1p"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.log1p</span></code></a>()</p></td>
+<td><p>Logarithmize the data matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pp.pca.html#scanpy.pp.pca" title="scanpy.pp.pca"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.pca</span></code></a>(data[, n_comps, zero_center, …])</p></td>
+<td><p>Principal component analysis <a class="reference internal" href="references.html#pedregosa11" id="id4"><span>[Pedregosa11]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.normalize_total.html#scanpy.pp.normalize_total" title="scanpy.pp.normalize_total"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.normalize_total</span></code></a>(adata[, target_sum, …])</p></td>
+<td><p>Normalize counts per cell.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pp.regress_out.html#scanpy.pp.regress_out" title="scanpy.pp.regress_out"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.regress_out</span></code></a>(adata, keys[, n_jobs, copy])</p></td>
+<td><p>Regress out (mostly) unwanted sources of variation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.scale.html#scanpy.pp.scale" title="scanpy.pp.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.scale</span></code></a>()</p></td>
+<td><p>Scale data to unit variance and zero mean.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pp.subsample.html#scanpy.pp.subsample" title="scanpy.pp.subsample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.subsample</span></code></a>(data[, fraction, n_obs, …])</p></td>
+<td><p>Subsample to a fraction of the number of observations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.downsample_counts.html#scanpy.pp.downsample_counts" title="scanpy.pp.downsample_counts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.downsample_counts</span></code></a>(adata[, …])</p></td>
+<td><p>Downsample counts from count matrix.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="recipes">
+<h3>Recipes<a class="headerlink" href="#recipes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.recipe_zheng17.html#scanpy.pp.recipe_zheng17" title="scanpy.pp.recipe_zheng17"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.recipe_zheng17</span></code></a>(adata[, n_top_genes, log, …])</p></td>
+<td><p>Normalization and filtering as of <a class="reference internal" href="references.html#zheng17" id="id5"><span>[Zheng17]</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pp.recipe_weinreb17.html#scanpy.pp.recipe_weinreb17" title="scanpy.pp.recipe_weinreb17"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.recipe_weinreb17</span></code></a>(adata[, log, …])</p></td>
+<td><p>Normalization and filtering as of <a class="reference internal" href="references.html#weinreb17" id="id6"><span>[Weinreb17]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.recipe_seurat.html#scanpy.pp.recipe_seurat" title="scanpy.pp.recipe_seurat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.recipe_seurat</span></code></a>(adata[, log, plot, copy])</p></td>
+<td><p>Normalization and filtering as of Seurat <a class="reference internal" href="references.html#satija15" id="id7"><span>[Satija15]</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="batch-effect-correction">
+<h3>Batch effect correction<a class="headerlink" href="#batch-effect-correction" title="Permalink to this headline"></a></h3>
+<p>Also see <a class="reference internal" href="#data-integration">Data integration</a>. Note that a simple batch correction method is available via <a class="reference internal" href="generated/scanpy.pp.regress_out.html#scanpy.pp.regress_out" title="scanpy.pp.regress_out"><code class="xref py py-func docutils literal notranslate"><span class="pre">pp.regress_out()</span></code></a>. Checkout <a class="reference internal" href="external.html#module-scanpy.external" title="scanpy.external"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scanpy.external</span></code></a> for more.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.combat.html#scanpy.pp.combat" title="scanpy.pp.combat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.combat</span></code></a>(adata[, key, covariates, inplace])</p></td>
+<td><p>ComBat function for batch effect correction <a class="reference internal" href="references.html#johnson07" id="id8"><span>[Johnson07]</span></a> <a class="reference internal" href="references.html#leek12" id="id9"><span>[Leek12]</span></a> <a class="reference internal" href="references.html#pedersen12" id="id10"><span>[Pedersen12]</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="neighbors">
+<h3>Neighbors<a class="headerlink" href="#neighbors" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors" title="scanpy.pp.neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.neighbors</span></code></a>(adata[, n_neighbors, n_pcs, …])</p></td>
+<td><p>Compute a neighborhood graph of observations <a class="reference internal" href="references.html#mcinnes18" id="id11"><span>[McInnes18]</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module-scanpy.tl">
+<span id="tools-tl"></span><h2>Tools: <code class="docutils literal notranslate"><span class="pre">tl</span></code><a class="headerlink" href="#module-scanpy.tl" title="Permalink to this headline"></a></h2>
+<p>Any transformation of the data matrix that is not <em>preprocessing</em>. In contrast to a <em>preprocessing</em> function, a <em>tool</em> usually adds an easily interpretable annotation to the data matrix, which can then be visualized with a corresponding plotting function.</p>
+<section id="embeddings">
+<h3>Embeddings<a class="headerlink" href="#embeddings" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.pca.html#scanpy.tl.pca" title="scanpy.tl.pca"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.pca</span></code></a>(data[, n_comps, zero_center, …])</p></td>
+<td><p>Principal component analysis <a class="reference internal" href="references.html#pedregosa11" id="id12"><span>[Pedregosa11]</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.tl.tsne.html#scanpy.tl.tsne" title="scanpy.tl.tsne"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.tsne</span></code></a>(adata[, n_pcs, use_rep, perplexity, …])</p></td>
+<td><p>t-SNE <a class="reference internal" href="references.html#maaten08" id="id13"><span>[Maaten08]</span></a> <a class="reference internal" href="references.html#amir13" id="id14"><span>[Amir13]</span></a> <a class="reference internal" href="references.html#pedregosa11" id="id15"><span>[Pedregosa11]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.umap.html#scanpy.tl.umap" title="scanpy.tl.umap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.umap</span></code></a>(adata[, min_dist, spread, …])</p></td>
+<td><p>Embed the neighborhood graph using UMAP <a class="reference internal" href="references.html#mcinnes18" id="id16"><span>[McInnes18]</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.tl.draw_graph.html#scanpy.tl.draw_graph" title="scanpy.tl.draw_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.draw_graph</span></code></a>(adata[, layout, init_pos, …])</p></td>
+<td><p>Force-directed graph drawing <a class="reference internal" href="references.html#islam11" id="id17"><span>[Islam11]</span></a> <a class="reference internal" href="references.html#jacomy14" id="id18"><span>[Jacomy14]</span></a> <a class="reference internal" href="references.html#chippada18" id="id19"><span>[Chippada18]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap" title="scanpy.tl.diffmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.diffmap</span></code></a>(adata[, n_comps, neighbors_key, …])</p></td>
+<td><p>Diffusion Maps <a class="reference internal" href="references.html#coifman05" id="id20"><span>[Coifman05]</span></a> <a class="reference internal" href="references.html#haghverdi15" id="id21"><span>[Haghverdi15]</span></a> <a class="reference internal" href="references.html#wolf18" id="id22"><span>[Wolf18]</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Compute densities on embeddings.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.embedding_density.html#scanpy.tl.embedding_density" title="scanpy.tl.embedding_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.embedding_density</span></code></a>(adata[, basis, …])</p></td>
+<td><p>Calculate the density of cells in an embedding (per condition).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="clustering-and-trajectory-inference">
+<h3>Clustering and trajectory inference<a class="headerlink" href="#clustering-and-trajectory-inference" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.leiden.html#scanpy.tl.leiden" title="scanpy.tl.leiden"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.leiden</span></code></a>(adata[, resolution, restrict_to, …])</p></td>
+<td><p>Cluster cells into subgroups <a class="reference internal" href="references.html#traag18" id="id23"><span>[Traag18]</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.tl.louvain.html#scanpy.tl.louvain" title="scanpy.tl.louvain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.louvain</span></code></a>(adata[, resolution, …])</p></td>
+<td><p>Cluster cells into subgroups <a class="reference internal" href="references.html#blondel08" id="id24"><span>[Blondel08]</span></a> <a class="reference internal" href="references.html#levine15" id="id25"><span>[Levine15]</span></a> <a class="reference internal" href="references.html#traag17" id="id26"><span>[Traag17]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.dendrogram.html#scanpy.tl.dendrogram" title="scanpy.tl.dendrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.dendrogram</span></code></a>(adata, groupby[, n_pcs, …])</p></td>
+<td><p>Computes a hierarchical clustering for the given <code class="docutils literal notranslate"><span class="pre">groupby</span></code> categories.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.tl.dpt.html#scanpy.tl.dpt" title="scanpy.tl.dpt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.dpt</span></code></a>(adata[, n_dcs, n_branchings, …])</p></td>
+<td><p>Infer progression of cells through geodesic distance along the graph <a class="reference internal" href="references.html#haghverdi16" id="id27"><span>[Haghverdi16]</span></a> <a class="reference internal" href="references.html#wolf19" id="id28"><span>[Wolf19]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.paga.html#scanpy.tl.paga" title="scanpy.tl.paga"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.paga</span></code></a>(adata[, groups, use_rna_velocity, …])</p></td>
+<td><p>Mapping out the coarse-grained connectivity structures of complex manifolds <a class="reference internal" href="references.html#wolf19" id="id29"><span>[Wolf19]</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-integration">
+<h3>Data integration<a class="headerlink" href="#data-integration" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.ingest.html#scanpy.tl.ingest" title="scanpy.tl.ingest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.ingest</span></code></a>(adata, adata_ref[, obs, …])</p></td>
+<td><p>Map labels and embeddings from reference data to new data.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="marker-genes">
+<h3>Marker genes<a class="headerlink" href="#marker-genes" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.rank_genes_groups.html#scanpy.tl.rank_genes_groups" title="scanpy.tl.rank_genes_groups"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.rank_genes_groups</span></code></a>(adata, groupby[, …])</p></td>
+<td><p>Rank genes for characterizing groups.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.tl.filter_rank_genes_groups.html#scanpy.tl.filter_rank_genes_groups" title="scanpy.tl.filter_rank_genes_groups"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.filter_rank_genes_groups</span></code></a>(adata[, key, …])</p></td>
+<td><p>Filters out genes based on log fold change and fraction of genes expressing the gene within and outside the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> categories.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.marker_gene_overlap.html#scanpy.tl.marker_gene_overlap" title="scanpy.tl.marker_gene_overlap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.marker_gene_overlap</span></code></a>(adata, …[, key, …])</p></td>
+<td><p>Calculate an overlap score between data-deriven marker genes and provided markers</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gene-scores-cell-cycle">
+<h3>Gene scores, Cell cycle<a class="headerlink" href="#gene-scores-cell-cycle" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.score_genes.html#scanpy.tl.score_genes" title="scanpy.tl.score_genes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.score_genes</span></code></a>(adata, gene_list[, …])</p></td>
+<td><p>Score a set of genes <a class="reference internal" href="references.html#satija15" id="id30"><span>[Satija15]</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.tl.score_genes_cell_cycle.html#scanpy.tl.score_genes_cell_cycle" title="scanpy.tl.score_genes_cell_cycle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.score_genes_cell_cycle</span></code></a>(adata, s_genes, …)</p></td>
+<td><p>Score cell cycle genes <a class="reference internal" href="references.html#satija15" id="id31"><span>[Satija15]</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="simulations">
+<h3>Simulations<a class="headerlink" href="#simulations" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.tl.sim.html#scanpy.tl.sim" title="scanpy.tl.sim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tl.sim</span></code></a>(model[, params_file, tmax, …])</p></td>
+<td><p>Simulate dynamic gene expression data <a class="reference internal" href="references.html#wittmann09" id="id32"><span>[Wittmann09]</span></a> <a class="reference internal" href="references.html#wolf18" id="id33"><span>[Wolf18]</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="module-scanpy.pl">
+<span id="plotting-pl"></span><h2>Plotting: <code class="docutils literal notranslate"><span class="pre">pl</span></code><a class="headerlink" href="#module-scanpy.pl" title="Permalink to this headline"></a></h2>
+<p>The plotting module <a class="reference internal" href="#module-scanpy.pl" title="scanpy.pl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">scanpy.pl</span></code></a> largely parallels the <code class="docutils literal notranslate"><span class="pre">tl.*</span></code> and a few of the <code class="docutils literal notranslate"><span class="pre">pp.*</span></code> functions.
+For most tools and for some preprocessing functions, you’ll find a plotting function with the same name.</p>
+<p>See <a class="tutorial reference external" href="https://scanpy-tutorials.readthedocs.io/en/latest/plotting/core.html">→ tutorial: plotting/core</a> for an overview of how to use these functions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the <a class="reference internal" href="#settings"><span class="std std-ref">Settings</span></a> section for all important plotting configurations.</p>
+</div>
+<section id="generic">
+<span id="pl-generic"></span><h3>Generic<a class="headerlink" href="#generic" title="Permalink to this headline"></a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.scatter.html#scanpy.pl.scatter" title="scanpy.pl.scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.scatter</span></code></a>(adata[, x, y, color, use_raw, …])</p></td>
+<td><p>Scatter plot along observations or variables axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.heatmap.html#scanpy.pl.heatmap" title="scanpy.pl.heatmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.heatmap</span></code></a>(adata, var_names, groupby[, …])</p></td>
+<td><p>Heatmap of the expression values of genes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.dotplot.html#scanpy.pl.dotplot" title="scanpy.pl.dotplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.dotplot</span></code></a>(adata, var_names, groupby[, …])</p></td>
+<td><p>Makes a <em>dot plot</em> of the expression values of <code class="docutils literal notranslate"><span class="pre">var_names</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.tracksplot.html#scanpy.pl.tracksplot" title="scanpy.pl.tracksplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.tracksplot</span></code></a>(adata, var_names, groupby[, …])</p></td>
+<td><p>In this type of plot each var_name is plotted as a filled line plot where the y values correspond to the var_name values and x is each of the cells.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.violin.html#scanpy.pl.violin" title="scanpy.pl.violin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.violin</span></code></a>(adata, keys[, groupby, log, …])</p></td>
+<td><p>Violin plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.stacked_violin.html#scanpy.pl.stacked_violin" title="scanpy.pl.stacked_violin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.stacked_violin</span></code></a>(adata, var_names, groupby)</p></td>
+<td><p>Stacked violin plots.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.matrixplot.html#scanpy.pl.matrixplot" title="scanpy.pl.matrixplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.matrixplot</span></code></a>(adata, var_names, groupby[, …])</p></td>
+<td><p>Creates a heatmap of the mean expression values per group of each var_names.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.clustermap.html#scanpy.pl.clustermap" title="scanpy.pl.clustermap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.clustermap</span></code></a>(adata[, obs_keys, use_raw, …])</p></td>
+<td><p>Hierarchically-clustered heatmap.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.ranking.html#scanpy.pl.ranking" title="scanpy.pl.ranking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.ranking</span></code></a>(adata, attr, keys[, dictionary, …])</p></td>
+<td><p>Plot rankings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.dendrogram.html#scanpy.pl.dendrogram" title="scanpy.pl.dendrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.dendrogram</span></code></a>(adata, groupby, *[, …])</p></td>
+<td><p>Plots a dendrogram of the categories defined in <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<p>These classes allow fine tuning of visual parameters.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/classes/scanpy.pl.DotPlot.html#scanpy.pl.DotPlot" title="scanpy.pl.DotPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.DotPlot</span></code></a>(adata, var_names, groupby[, …])</p></td>
+<td><p>Allows the visualization of two values that are encoded as dot size and color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/classes/scanpy.pl.MatrixPlot.html#scanpy.pl.MatrixPlot" title="scanpy.pl.MatrixPlot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.MatrixPlot</span></code></a>(adata, var_names, groupby[, …])</p></td>
+<td><p>Allows the visualization of values using a color map.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/classes/scanpy.pl.StackedViolin.html#scanpy.pl.StackedViolin" title="scanpy.pl.StackedViolin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.StackedViolin</span></code></a>(adata, var_names, groupby)</p></td>
+<td><p>Stacked violin plots.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="preprocessing">
+<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline"></a></h3>
+<p>Methods for visualizing quality control and results of preprocessing functions.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.highest_expr_genes.html#scanpy.pl.highest_expr_genes" title="scanpy.pl.highest_expr_genes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.highest_expr_genes</span></code></a>(adata[, n_top, show, …])</p></td>
+<td><p>Fraction of counts assigned to each gene over all cells.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.filter_genes_dispersion.html#scanpy.pl.filter_genes_dispersion" title="scanpy.pl.filter_genes_dispersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.filter_genes_dispersion</span></code></a>(result[, log, …])</p></td>
+<td><p>Plot dispersions versus means for genes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.highly_variable_genes.html#scanpy.pl.highly_variable_genes" title="scanpy.pl.highly_variable_genes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.highly_variable_genes</span></code></a>(adata_or_result[, …])</p></td>
+<td><p>Plot dispersions or normalized variance versus means for genes.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tools">
+<h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline"></a></h3>
+<p>Methods that extract and visualize tool-specific annotation in an
+<a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a> object.  For any method in module <code class="docutils literal notranslate"><span class="pre">tl</span></code>, there is
+a method with the same name in <code class="docutils literal notranslate"><span class="pre">pl</span></code>.</p>
+<section id="pca">
+<h4>PCA<a class="headerlink" href="#pca" title="Permalink to this headline"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.pca.html#scanpy.pl.pca" title="scanpy.pl.pca"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.pca</span></code></a>(adata, *[, color, gene_symbols, …])</p></td>
+<td><p>Scatter plot in PCA coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.pca_loadings.html#scanpy.pl.pca_loadings" title="scanpy.pl.pca_loadings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.pca_loadings</span></code></a>(adata[, components, …])</p></td>
+<td><p>Rank genes according to contributions to PCs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.pca_variance_ratio.html#scanpy.pl.pca_variance_ratio" title="scanpy.pl.pca_variance_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.pca_variance_ratio</span></code></a>(adata[, n_pcs, log, …])</p></td>
+<td><p>Plot the variance ratio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.pca_overview.html#scanpy.pl.pca_overview" title="scanpy.pl.pca_overview"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.pca_overview</span></code></a>(adata, **params)</p></td>
+<td><p>Plot PCA results.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id34">
+<h4>Embeddings<a class="headerlink" href="#id34" title="Permalink to this headline"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.tsne.html#scanpy.pl.tsne" title="scanpy.pl.tsne"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.tsne</span></code></a>(adata, *[, color, gene_symbols, …])</p></td>
+<td><p>Scatter plot in tSNE basis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.umap.html#scanpy.pl.umap" title="scanpy.pl.umap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.umap</span></code></a>(adata, *[, color, gene_symbols, …])</p></td>
+<td><p>Scatter plot in UMAP basis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.diffmap.html#scanpy.pl.diffmap" title="scanpy.pl.diffmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.diffmap</span></code></a>(adata, *[, color, gene_symbols, …])</p></td>
+<td><p>Scatter plot in Diffusion Map basis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.draw_graph.html#scanpy.pl.draw_graph" title="scanpy.pl.draw_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.draw_graph</span></code></a>(adata, *[, color, …])</p></td>
+<td><p>Scatter plot in graph-drawing basis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.spatial.html#scanpy.pl.spatial" title="scanpy.pl.spatial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.spatial</span></code></a>(adata, *[, color, gene_symbols, …])</p></td>
+<td><p>Scatter plot in spatial coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.embedding.html#scanpy.pl.embedding" title="scanpy.pl.embedding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.embedding</span></code></a>(adata, basis, *[, color, …])</p></td>
+<td><p>Scatter plot for user specified embedding basis (e.g.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Compute densities on embeddings.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.embedding_density.html#scanpy.pl.embedding_density" title="scanpy.pl.embedding_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.embedding_density</span></code></a>(adata[, basis, key, …])</p></td>
+<td><p>Plot the density of cells in an embedding (per condition).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="branching-trajectories-and-pseudotime-clustering">
+<h4>Branching trajectories and pseudotime, clustering<a class="headerlink" href="#branching-trajectories-and-pseudotime-clustering" title="Permalink to this headline"></a></h4>
+<p>Visualize clusters using one of the embedding methods passing <code class="docutils literal notranslate"><span class="pre">color='louvain'</span></code>.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.dpt_groups_pseudotime.html#scanpy.pl.dpt_groups_pseudotime" title="scanpy.pl.dpt_groups_pseudotime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.dpt_groups_pseudotime</span></code></a>(adata[, color_map, …])</p></td>
+<td><p>Plot groups and pseudotime.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.dpt_timeseries.html#scanpy.pl.dpt_timeseries" title="scanpy.pl.dpt_timeseries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.dpt_timeseries</span></code></a>(adata[, color_map, show, …])</p></td>
+<td><p>Heatmap of pseudotime series.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.paga.html#scanpy.pl.paga" title="scanpy.pl.paga"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.paga</span></code></a>(adata[, threshold, color, layout, …])</p></td>
+<td><p>Plot the PAGA graph through thresholding low-connectivity edges.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.paga_path.html#scanpy.pl.paga_path" title="scanpy.pl.paga_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.paga_path</span></code></a>(adata, nodes, keys[, use_raw, …])</p></td>
+<td><p>Gene expression and annotation changes along paths in the abstracted graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.paga_compare.html#scanpy.pl.paga_compare" title="scanpy.pl.paga_compare"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.paga_compare</span></code></a>(adata[, basis, edges, …])</p></td>
+<td><p>Scatter and PAGA graph side-by-side.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id35">
+<h4>Marker genes<a class="headerlink" href="#id35" title="Permalink to this headline"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.rank_genes_groups.html#scanpy.pl.rank_genes_groups" title="scanpy.pl.rank_genes_groups"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.rank_genes_groups</span></code></a>(adata[, groups, …])</p></td>
+<td><p>Plot ranking of genes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.rank_genes_groups_violin.html#scanpy.pl.rank_genes_groups_violin" title="scanpy.pl.rank_genes_groups_violin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.rank_genes_groups_violin</span></code></a>(adata[, groups, …])</p></td>
+<td><p>Plot ranking of genes for all tested comparisons.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.rank_genes_groups_stacked_violin.html#scanpy.pl.rank_genes_groups_stacked_violin" title="scanpy.pl.rank_genes_groups_stacked_violin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.rank_genes_groups_stacked_violin</span></code></a>(adata[, …])</p></td>
+<td><p>Plot ranking of genes using stacked_violin plot (see <a class="reference internal" href="generated/scanpy.pl.stacked_violin.html#scanpy.pl.stacked_violin" title="scanpy.pl.stacked_violin"><code class="xref py py-func docutils literal notranslate"><span class="pre">stacked_violin()</span></code></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.rank_genes_groups_heatmap.html#scanpy.pl.rank_genes_groups_heatmap" title="scanpy.pl.rank_genes_groups_heatmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.rank_genes_groups_heatmap</span></code></a>(adata[, …])</p></td>
+<td><p>Plot ranking of genes using heatmap plot (see <a class="reference internal" href="generated/scanpy.pl.heatmap.html#scanpy.pl.heatmap" title="scanpy.pl.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.rank_genes_groups_dotplot.html#scanpy.pl.rank_genes_groups_dotplot" title="scanpy.pl.rank_genes_groups_dotplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.rank_genes_groups_dotplot</span></code></a>(adata[, …])</p></td>
+<td><p>Plot ranking of genes using dotplot plot (see <a class="reference internal" href="generated/scanpy.pl.dotplot.html#scanpy.pl.dotplot" title="scanpy.pl.dotplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">dotplot()</span></code></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pl.rank_genes_groups_matrixplot.html#scanpy.pl.rank_genes_groups_matrixplot" title="scanpy.pl.rank_genes_groups_matrixplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.rank_genes_groups_matrixplot</span></code></a>(adata[, …])</p></td>
+<td><p>Plot ranking of genes using matrixplot plot (see <a class="reference internal" href="generated/scanpy.pl.matrixplot.html#scanpy.pl.matrixplot" title="scanpy.pl.matrixplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">matrixplot()</span></code></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.rank_genes_groups_tracksplot.html#scanpy.pl.rank_genes_groups_tracksplot" title="scanpy.pl.rank_genes_groups_tracksplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.rank_genes_groups_tracksplot</span></code></a>(adata[, …])</p></td>
+<td><p>Plot ranking of genes using heatmap plot (see <a class="reference internal" href="generated/scanpy.pl.heatmap.html#scanpy.pl.heatmap" title="scanpy.pl.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id36">
+<h4>Simulations<a class="headerlink" href="#id36" title="Permalink to this headline"></a></h4>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pl.sim.html#scanpy.pl.sim" title="scanpy.pl.sim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pl.sim</span></code></a>(adata[, tmax_realization, …])</p></td>
+<td><p>Plot results of simulation.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="reading">
+<h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For reading annotation use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io" title="(in pandas v1.4.1)"><span class="xref std std-ref">pandas.read_…</span></a>
+and add it to your <a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">anndata.AnnData</span></code></a> object. The following read functions are
+intended for the numeric data in the data matrix <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+</div>
+<p>Read common file formats using</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.read.html#scanpy.read" title="scanpy.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(filename[, backed, sheet, ext, …])</p></td>
+<td><p>Read file and return <a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a> object.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Read 10x formatted hdf5 files and directories containing <code class="docutils literal notranslate"><span class="pre">.mtx</span></code> files using</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.read_10x_h5.html#scanpy.read_10x_h5" title="scanpy.read_10x_h5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_10x_h5</span></code></a>(filename[, genome, gex_only, …])</p></td>
+<td><p>Read 10x-Genomics-formatted hdf5 file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.read_10x_mtx.html#scanpy.read_10x_mtx" title="scanpy.read_10x_mtx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_10x_mtx</span></code></a>(path[, var_names, make_unique, …])</p></td>
+<td><p>Read 10x-Genomics-formatted mtx directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.read_visium.html#scanpy.read_visium" title="scanpy.read_visium"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_visium</span></code></a>(path[, genome, count_file, …])</p></td>
+<td><p>Read 10x-Genomics-formatted visum dataset.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Read other formats using functions borrowed from <a class="reference external" href="https://anndata.readthedocs.io/en/stable/api.html#module-anndata" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">anndata</span></code></a></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.read_h5ad.html#scanpy.read_h5ad" title="scanpy.read_h5ad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_h5ad</span></code></a>(filename[, backed, as_sparse, …])</p></td>
+<td><p>Read <code class="docutils literal notranslate"><span class="pre">.h5ad</span></code>-formatted hdf5 file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.read_csv.html#scanpy.read_csv" title="scanpy.read_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_csv</span></code></a>(filename[, delimiter, …])</p></td>
+<td><p>Read <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.read_excel.html#scanpy.read_excel" title="scanpy.read_excel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_excel</span></code></a>(filename, sheet[, dtype])</p></td>
+<td><p>Read <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> (Excel) file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.read_hdf.html#scanpy.read_hdf" title="scanpy.read_hdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_hdf</span></code></a>(filename, key)</p></td>
+<td><p>Read <code class="docutils literal notranslate"><span class="pre">.h5</span></code> (hdf5) file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.read_loom.html#scanpy.read_loom" title="scanpy.read_loom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_loom</span></code></a>(filename, *[, sparse, cleanup, …])</p></td>
+<td><p>Read <code class="docutils literal notranslate"><span class="pre">.loom</span></code>-formatted hdf5 file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.read_mtx.html#scanpy.read_mtx" title="scanpy.read_mtx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_mtx</span></code></a>(filename[, dtype])</p></td>
+<td><p>Read <code class="docutils literal notranslate"><span class="pre">.mtx</span></code> file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.read_text.html#scanpy.read_text" title="scanpy.read_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_text</span></code></a>(filename[, delimiter, …])</p></td>
+<td><p>Read <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.tab</span></code>, <code class="docutils literal notranslate"><span class="pre">.data</span></code> (text) file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.read_umi_tools.html#scanpy.read_umi_tools" title="scanpy.read_umi_tools"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_umi_tools</span></code></a>(filename[, dtype])</p></td>
+<td><p>Read a gzipped condensed count matrix from umi_tools.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-scanpy.get">
+<span id="get-object-from-anndata-get"></span><h2>Get object from <code class="docutils literal notranslate"><span class="pre">AnnData</span></code>: <code class="docutils literal notranslate"><span class="pre">get</span></code><a class="headerlink" href="#module-scanpy.get" title="Permalink to this headline"></a></h2>
+<p>The module <code class="docutils literal notranslate"><span class="pre">sc.get</span></code> provides convenience functions for getting values back in
+useful formats.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.get.obs_df.html#scanpy.get.obs_df" title="scanpy.get.obs_df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get.obs_df</span></code></a>(adata[, keys, obsm_keys, layer, …])</p></td>
+<td><p>Return values for observations in adata.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.get.var_df.html#scanpy.get.var_df" title="scanpy.get.var_df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get.var_df</span></code></a>(adata[, keys, varm_keys, layer])</p></td>
+<td><p>Return values for observations in adata.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.get.rank_genes_groups_df.html#scanpy.get.rank_genes_groups_df" title="scanpy.get.rank_genes_groups_df"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get.rank_genes_groups_df</span></code></a>(adata, group, *[, …])</p></td>
+<td><p><a class="reference internal" href="generated/scanpy.tl.rank_genes_groups.html#scanpy.tl.rank_genes_groups" title="scanpy.tl.rank_genes_groups"><code class="xref py py-func docutils literal notranslate"><span class="pre">scanpy.tl.rank_genes_groups()</span></code></a> results in the form of a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-scanpy.queries">
+<span id="queries"></span><h2>Queries<a class="headerlink" href="#module-scanpy.queries" title="Permalink to this headline"></a></h2>
+<p>This module provides useful queries for annotation and enrichment.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.queries.biomart_annotations.html#scanpy.queries.biomart_annotations" title="scanpy.queries.biomart_annotations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">queries.biomart_annotations</span></code></a>(org, attrs, *[, …])</p></td>
+<td><p>Retrieve gene annotations from ensembl biomart.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.queries.gene_coordinates.html#scanpy.queries.gene_coordinates" title="scanpy.queries.gene_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">queries.gene_coordinates</span></code></a>(org, gene_name, *)</p></td>
+<td><p>Retrieve gene coordinates for specific organism through BioMart.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.queries.mitochondrial_genes.html#scanpy.queries.mitochondrial_genes" title="scanpy.queries.mitochondrial_genes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">queries.mitochondrial_genes</span></code></a>(org, *[, …])</p></td>
+<td><p>Mitochondrial gene symbols for specific organism through BioMart.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.queries.enrich.html#scanpy.queries.enrich" title="scanpy.queries.enrich"><code class="xref py py-obj docutils literal notranslate"><span class="pre">queries.enrich</span></code></a>(container, *[, org, …])</p></td>
+<td><p>Get enrichment for DE results.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-scanpy.metrics">
+<span id="metrics"></span><h2>Metrics<a class="headerlink" href="#module-scanpy.metrics" title="Permalink to this headline"></a></h2>
+<p>Collections of useful measurements for evaluating results.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.metrics.confusion_matrix.html#scanpy.metrics.confusion_matrix" title="scanpy.metrics.confusion_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metrics.confusion_matrix</span></code></a>(orig, new[, data, …])</p></td>
+<td><p>Given an original and new set of labels, create a labelled confusion matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.metrics.gearys_c.html#scanpy.metrics.gearys_c" title="scanpy.metrics.gearys_c"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metrics.gearys_c</span></code></a>()</p></td>
+<td><p>Calculate <a class="reference external" href="https://en.wikipedia.org/wiki/Geary's_C">Geary’s C</a>, as used by <a class="reference external" href="https://doi.org/10.1038/s41467-019-12235-0">VISION</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.metrics.morans_i.html#scanpy.metrics.morans_i" title="scanpy.metrics.morans_i"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metrics.morans_i</span></code></a>()</p></td>
+<td><p>Calculate Moran’s I Global Autocorrelation Statistic.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id37">
+<h2>Classes<a class="headerlink" href="#id37" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a> is reexported from <a class="reference external" href="https://anndata.readthedocs.io/en/stable/api.html#module-anndata" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">anndata</span></code></a>.</p>
+<p>Represent data as a neighborhood structure, usually a knn graph.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.Neighbors.html#scanpy.Neighbors" title="scanpy.Neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Neighbors</span></code></a>(adata[, n_dcs, neighbors_key])</p></td>
+<td><p>Data represented as graph of nearest neighbors.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="settings">
+<span id="id38"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline"></a></h2>
+<p>A convenience function for setting some default <a class="reference external" href="https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.rcParams" title="(in Matplotlib v3.5.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.rcParams</span></code></a> and a
+high-resolution jupyter display backend useful for use in notebooks.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.set_figure_params.html#scanpy.set_figure_params" title="scanpy.set_figure_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_figure_params</span></code></a>([scanpy, dpi, dpi_save, …])</p></td>
+<td><p>Set resolution/size, styling and format of figures.</p></td>
+</tr>
+</tbody>
+</table>
+<p>An instance of the <a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.html#scanpy._settings.ScanpyConfig" title="scanpy._settings.ScanpyConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScanpyConfig</span></code></a> is available as <code class="docutils literal notranslate"><span class="pre">scanpy.settings</span></code> and allows configuring Scanpy.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.html#scanpy._settings.ScanpyConfig" title="scanpy._settings.ScanpyConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_settings.ScanpyConfig</span></code></a>(*[, verbosity, …])</p></td>
+<td><p>Config manager for scanpy.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Some selected settings are discussed in the following.</p>
+<p>Influence the global behavior of plotting functions. In non-interactive scripts,
+you’d usually want to set <code class="docutils literal notranslate"><span class="pre">settings.autoshow</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.autoshow.html#scanpy._settings.ScanpyConfig.autoshow" title="scanpy._settings.ScanpyConfig.autoshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">autoshow</span></code></a></p></td>
+<td><p>Automatically show figures if <code class="docutils literal notranslate"><span class="pre">autosave</span> <span class="pre">==</span> <span class="pre">False</span></code> (default <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.autosave.html#scanpy._settings.ScanpyConfig.autosave" title="scanpy._settings.ScanpyConfig.autosave"><code class="xref py py-obj docutils literal notranslate"><span class="pre">autosave</span></code></a></p></td>
+<td><p>Automatically save figures in <a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.figdir.html#scanpy._settings.ScanpyConfig.figdir" title="scanpy._settings.ScanpyConfig.figdir"><code class="xref py py-attr docutils literal notranslate"><span class="pre">figdir</span></code></a> (default <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+<p>The default directories for saving figures, caching files and storing datasets.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.figdir.html#scanpy._settings.ScanpyConfig.figdir" title="scanpy._settings.ScanpyConfig.figdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">figdir</span></code></a></p></td>
+<td><p>Directory for saving figures (default <code class="docutils literal notranslate"><span class="pre">'./figures/'</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.cachedir.html#scanpy._settings.ScanpyConfig.cachedir" title="scanpy._settings.ScanpyConfig.cachedir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cachedir</span></code></a></p></td>
+<td><p>Directory for cache files (default <code class="docutils literal notranslate"><span class="pre">'./cache/'</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.datasetdir.html#scanpy._settings.ScanpyConfig.datasetdir" title="scanpy._settings.ScanpyConfig.datasetdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasetdir</span></code></a></p></td>
+<td><p>Directory for example <a class="reference internal" href="#module-scanpy.datasets" title="scanpy.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">datasets</span></code></a> (default <code class="docutils literal notranslate"><span class="pre">'./data/'</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+<p>The verbosity of logging output, where verbosity levels have the following
+meaning: 0=’error’, 1=’warning’, 2=’info’, 3=’hint’, 4=more details, 5=even more
+details, etc.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy._settings.ScanpyConfig.verbosity.html#scanpy._settings.ScanpyConfig.verbosity" title="scanpy._settings.ScanpyConfig.verbosity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">verbosity</span></code></a></p></td>
+<td><p>Verbosity level (default <code class="docutils literal notranslate"><span class="pre">warning</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Print versions of packages that might influence numerical results.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.logging.print_header.html#scanpy.logging.print_header" title="scanpy.logging.print_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logging.print_header</span></code></a>(*[, file])</p></td>
+<td><p>Versions that might influence the numerical results.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.logging.print_versions.html#scanpy.logging.print_versions" title="scanpy.logging.print_versions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logging.print_versions</span></code></a>(*[, file])</p></td>
+<td><p>Print print versions of imported packages</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-scanpy.datasets">
+<span id="datasets"></span><h2>Datasets<a class="headerlink" href="#module-scanpy.datasets" title="Permalink to this headline"></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.datasets.blobs.html#scanpy.datasets.blobs" title="scanpy.datasets.blobs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.blobs</span></code></a>([n_variables, n_centers, …])</p></td>
+<td><p>Gaussian Blobs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.datasets.ebi_expression_atlas.html#scanpy.datasets.ebi_expression_atlas" title="scanpy.datasets.ebi_expression_atlas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.ebi_expression_atlas</span></code></a>(accession, *)</p></td>
+<td><p>Load a dataset from the <a class="reference external" href="https://www.ebi.ac.uk/gxa/sc/experiments">EBI Single Cell Expression Atlas</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.datasets.krumsiek11.html#scanpy.datasets.krumsiek11" title="scanpy.datasets.krumsiek11"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.krumsiek11</span></code></a>()</p></td>
+<td><p>Simulated myeloid progenitors <a class="reference internal" href="references.html#krumsiek11" id="id39"><span>[Krumsiek11]</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.datasets.moignard15.html#scanpy.datasets.moignard15" title="scanpy.datasets.moignard15"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.moignard15</span></code></a>()</p></td>
+<td><p>Hematopoiesis in early mouse embryos <a class="reference internal" href="references.html#moignard15" id="id40"><span>[Moignard15]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.datasets.pbmc3k.html#scanpy.datasets.pbmc3k" title="scanpy.datasets.pbmc3k"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.pbmc3k</span></code></a>()</p></td>
+<td><p>3k PBMCs from 10x Genomics.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.datasets.pbmc3k_processed.html#scanpy.datasets.pbmc3k_processed" title="scanpy.datasets.pbmc3k_processed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.pbmc3k_processed</span></code></a>()</p></td>
+<td><p>Processed 3k PBMCs from 10x Genomics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.datasets.pbmc68k_reduced.html#scanpy.datasets.pbmc68k_reduced" title="scanpy.datasets.pbmc68k_reduced"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.pbmc68k_reduced</span></code></a>()</p></td>
+<td><p>Subsampled and processed 68k PBMCs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.datasets.paul15.html#scanpy.datasets.paul15" title="scanpy.datasets.paul15"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.paul15</span></code></a>()</p></td>
+<td><p>Development of Myeloid Progenitors <a class="reference internal" href="references.html#paul15" id="id41"><span>[Paul15]</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.datasets.toggleswitch.html#scanpy.datasets.toggleswitch" title="scanpy.datasets.toggleswitch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.toggleswitch</span></code></a>()</p></td>
+<td><p>Simulated toggleswitch.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.datasets.visium_sge.html#scanpy.datasets.visium_sge" title="scanpy.datasets.visium_sge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets.visium_sge</span></code></a>([sample_id, …])</p></td>
+<td><p>Processed Visium Spatial Gene Expression data from 10x Genomics.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="deprecated-functions">
+<h2>Deprecated functions<a class="headerlink" href="#deprecated-functions" title="Permalink to this headline"></a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/scanpy.pp.filter_genes_dispersion.html#scanpy.pp.filter_genes_dispersion" title="scanpy.pp.filter_genes_dispersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.filter_genes_dispersion</span></code></a>(data[, flavor, …])</p></td>
+<td><p>Extract highly variable genes <a class="reference internal" href="references.html#satija15" id="id42"><span>[Satija15]</span></a> <a class="reference internal" href="references.html#zheng17" id="id43"><span>[Zheng17]</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/scanpy.pp.normalize_per_cell.html#scanpy.pp.normalize_per_cell" title="scanpy.pp.normalize_per_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pp.normalize_per_cell</span></code></a>(data[, …])</p></td>
+<td><p>Normalize total counts per cell.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/scanpy.pp.calculate_qc_metrics.html" class="btn btn-neutral float-right" title="scanpy.pp.calculate_qc_metrics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, the Scanpy development team..
+      <span class="commit">Revision <code>7b22b756</code>.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.com/projects/icb-scanpy/?fromdocs=icb-scanpy">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.com/builds/icb-scanpy/?fromdocs=icb-scanpy">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

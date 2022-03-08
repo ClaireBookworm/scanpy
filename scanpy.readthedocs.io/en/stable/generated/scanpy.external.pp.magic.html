@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>scanpy.external.pp.magic &mdash; Scanpy 1.8.2 documentation</title>
+
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.css"/>
+
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/scanpy.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/typehints.css" type="text/css" />
+      <link rel="stylesheet" href="https://assets.readthedocs.com/css/badge_only.css" type="text/css" />
+    <link rel="canonical" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.external.pp.magic.html" />
+
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://assets.readthedocs.com/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => docsearch({
+    apiKey: 'fa4304eb95d2134997e3729553a674b2',
+    indexName: 'scanpy',
+    inputSelector: '#rtd-search-form > input[name="q"]',
+    algoliaOptions: { facetFilters: ['version:latest'] },
+    debug: false,
+  }))
+</script>
+
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="scanpy.external.tl.phate" href="scanpy.external.tl.phate.html" />
+    <link rel="prev" title="scanpy.external.pp.dca" href="scanpy.external.pp.dca.html" />
+ 
+
+
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="https://assets.readthedocs.com/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.com", "build_date": "2021-11-03T17:53:53Z", "builder": "sphinx", "canonical_url": null, "commit": "8736fc3b", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-2", "language": "en", "page": "generated/scanpy.external.pp.magic", "programming_language": "py", "project": "icb-scanpy", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "scanpydoc", "user_analytics_code": "", "version": "stable"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.com/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/Scanpy_Logo_BrightFG.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage-principles.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../external.html">External API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../external.html#preprocessing-pp">Preprocessing: PP</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../external.html#data-integration">Data integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../external.html#sample-demultiplexing-doublet-detection">Sample demultiplexing, Doublet detection</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../external.html#imputation">Imputation</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="scanpy.external.pp.dca.html">scanpy.external.pp.dca</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">scanpy.external.pp.magic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../external.html#tools-tl">Tools: TL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../external.html#plotting-pl">Plotting: PL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../external.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes/index.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/index.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scanpy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../external.html">External API</a> &raquo;</li>
+      <li>scanpy.external.pp.magic</li>
+      <li class="wy-breadcrumbs-aside">
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/theislab/scanpy/tree/8736fc3b02a6af3b7214481c2cf78a3f8f5e06bd/scanpy/external/pp/_magic.py#L18-L202" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scanpy-external-pp-magic">
+<h1>scanpy.external.pp.magic<a class="headerlink" href="#scanpy-external-pp-magic" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="scanpy.external.pp.magic">
+<span class="sig-prename descclassname"><span class="pre">scanpy.external.pp.</span></span><span class="sig-name descname"><span class="pre">magic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knn_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pca</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exact'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knn_dist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scanpy.external.pp.magic" title="Permalink to this definition"></a></dt>
+<dd><p>Markov Affinity-based Graph Imputation of Cells (MAGIC) API <a class="reference internal" href="../references.html#vandijk18" id="id1"><span>[vanDijk18]</span></a>.</p>
+<p>MAGIC is an algorithm for denoising and transcript recover of single cells
+applied to single-cell sequencing data. MAGIC builds a graph from the data
+and uses diffusion to smooth out noise and recover the data manifold.</p>
+<p>The algorithm implemented here has changed primarily in two ways
+compared to the algorithm described in <a class="reference internal" href="../references.html#vandijk18" id="id2"><span>[vanDijk18]</span></a>. Firstly, we use
+the adaptive kernel described in Moon et al, 2019 <a class="reference internal" href="../references.html#moon17" id="id3"><span>[Moon17]</span></a> for
+improved stability. Secondly, data diffusion is applied
+in the PCA space, rather than the data space, for speed and
+memory improvements.</p>
+<p>More information and bug reports
+<a class="reference external" href="https://github.com/KrishnaswamyLab/MAGIC">here</a>. For help, visit
+&lt;<a class="reference external" href="https://krishnaswamylab.org/get-help">https://krishnaswamylab.org/get-help</a>&gt;.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>adata</strong> : <span class="annotation terse"><a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a></span><span class="annotation full"><a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a></span></dt><dd><p>An anndata file with <code class="docutils literal notranslate"><span class="pre">.raw</span></code> attribute representing raw counts.</p>
+</dd>
+<dt><strong>name_list</strong> : <span class="annotation terse">{‘all_genes’, ‘pca_only’} | <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>] | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code></a>[‘all_genes’, ‘pca_only’], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]</span> (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>Denoised genes to return. The default <code class="docutils literal notranslate"><span class="pre">'all_genes'</span></code>/<code class="docutils literal notranslate"><span class="pre">None</span></code>
+may require a large amount of memory if the input data is sparse.
+Another possibility is <code class="docutils literal notranslate"><span class="pre">'pca_only'</span></code>.</p>
+</dd>
+<dt><strong>knn</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span> (default: <code class="docutils literal notranslate"><span class="pre">5</span></code>)</dt><dd><p>number of nearest neighbors on which to build kernel.</p>
+</dd>
+<dt><strong>decay</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</span> (default: <code class="docutils literal notranslate"><span class="pre">1</span></code>)</dt><dd><p>sets decay rate of kernel tails.
+If None, alpha decaying kernel is not used.</p>
+</dd>
+<dt><strong>knn_max</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span> (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>maximum number of nearest neighbors with nonzero connection.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, will be set to 3 * <code class="docutils literal notranslate"><span class="pre">knn</span></code>.</p>
+</dd>
+<dt><strong>t</strong> : <span class="annotation terse">{‘auto’} | <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code></a>[‘auto’], <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span> (default: <code class="docutils literal notranslate"><span class="pre">3</span></code>)</dt><dd><p>power to which the diffusion operator is powered.
+This sets the level of diffusion. If ‘auto’, t is selected
+according to the Procrustes disparity of the diffused data.</p>
+</dd>
+<dt><strong>n_pca</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span> (default: <code class="docutils literal notranslate"><span class="pre">100</span></code>)</dt><dd><p>Number of principal components to use for calculating
+neighborhoods. For extremely large datasets, using
+n_pca &lt; 20 allows neighborhoods to be calculated in
+roughly log(n_samples) time. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no PCA is performed.</p>
+</dd>
+<dt><strong>solver</strong> : <span class="annotation terse">{‘exact’, ‘approximate’}</span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code></a>[‘exact’, ‘approximate’]</span> (default: <code class="docutils literal notranslate"><span class="pre">'exact'</span></code>)</dt><dd><p>Which solver to use. “exact” uses the implementation described
+in van Dijk et al. (2018) <a class="reference internal" href="../references.html#vandijk18" id="id4"><span>[vanDijk18]</span></a>. “approximate” uses a faster
+implementation that performs imputation in the PCA space and then
+projects back to the gene space. Note, the “approximate” solver may
+return negative values.</p>
+</dd>
+<dt><strong>knn_dist</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span> (default: <code class="docutils literal notranslate"><span class="pre">'euclidean'</span></code>)</dt><dd><p>recommended values: ‘euclidean’, ‘cosine’, ‘precomputed’
+Any metric from <code class="docutils literal notranslate"><span class="pre">scipy.spatial.distance</span></code> can be used
+distance metric for building kNN graph. If ‘precomputed’,
+<code class="docutils literal notranslate"><span class="pre">data</span></code> should be an n_samples x n_samples distance or
+affinity matrix.</p>
+</dd>
+<dt><strong>random_state</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://numpy.org/doc/stable/reference/random/legacy.html#numpy.random.RandomState" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomState</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/random/legacy.html#numpy.random.RandomState" title="(in NumPy v1.21)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomState</span></code></a>]</span> (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>Random seed. Defaults to the global <code class="docutils literal notranslate"><span class="pre">numpy</span></code> random number generator.</p>
+</dd>
+<dt><strong>n_jobs</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span> (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>Number of threads to use in training. All cores are used by default.</p>
+</dd>
+<dt><strong>verbose</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span> (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> or an integer <code class="docutils literal notranslate"><span class="pre">&gt;=</span> <span class="pre">2</span></code>, print status messages.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">sc.settings.verbosity</span></code> is used.</p>
+</dd>
+<dt><strong>copy</strong> : <span class="annotation terse"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</span> (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>If true, a copy of anndata is returned. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">copy</span></code> is True if
+<code class="docutils literal notranslate"><span class="pre">genes</span></code> is not <code class="docutils literal notranslate"><span class="pre">'all_genes'</span></code> or <code class="docutils literal notranslate"><span class="pre">'pca_only'</span></code>. <code class="docutils literal notranslate"><span class="pre">copy</span></code> may only be False
+if <code class="docutils literal notranslate"><span class="pre">genes</span></code> is <code class="docutils literal notranslate"><span class="pre">'all_genes'</span></code> or <code class="docutils literal notranslate"><span class="pre">'pca_only'</span></code>, as the resultant data
+will otherwise have different column names from the input data.</p>
+</dd>
+<dt><strong>kwargs</strong></dt><dd><p>Additional arguments to <code class="docutils literal notranslate"><span class="pre">magic.MAGIC</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><span class="annotation terse"><a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span><span class="annotation full"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>If <code class="docutils literal notranslate"><span class="pre">copy</span></code> is True, AnnData object is returned.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">subset_genes</span></code> is not <code class="docutils literal notranslate"><span class="pre">all_genes</span></code>, PCA on MAGIC values of cells are
+stored in <code class="docutils literal notranslate"><span class="pre">adata.obsm['X_magic']</span></code> and <code class="docutils literal notranslate"><span class="pre">adata.X</span></code> is not modified.</p>
+<p>The raw counts are stored in <code class="docutils literal notranslate"><span class="pre">.raw</span></code> attribute of AnnData object.</p>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scanpy.external</span> <span class="k">as</span> <span class="nn">sce</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">paul15</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">normalize_per_cell</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>  <span class="c1"># or sc.pp.log1p(adata)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata_magic</span> <span class="o">=</span> <span class="n">sce</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">magic</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">name_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Mpo&#39;</span><span class="p">,</span> <span class="s1">&#39;Klf1&#39;</span><span class="p">,</span> <span class="s1">&#39;Ifitm1&#39;</span><span class="p">],</span> <span class="n">knn</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata_magic</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2730, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sce</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">magic</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">name_list</span><span class="o">=</span><span class="s1">&#39;pca_only&#39;</span><span class="p">,</span> <span class="n">knn</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s1">&#39;X_magic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2730, 100)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sce</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">magic</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">name_list</span><span class="o">=</span><span class="s1">&#39;all_genes&#39;</span><span class="p">,</span> <span class="n">knn</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2730, 3451)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="scanpy.external.pp.dca.html" class="btn btn-neutral float-left" title="scanpy.external.pp.dca" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scanpy.external.tl.phate.html" class="btn btn-neutral float-right" title="scanpy.external.tl.phate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Alex Wolf, Philipp Angerer, Fidel Ramirez, Isaac Virshup, Sergei Rybakov, Gokcen Eraslan, Tom White, Malte Luecken, Davide Cittaro, Tobias Callies, Marius Lange, Andrés R. Muñoz-Rojas..
+      <span class="commit">Revision <code>8736fc3b</code>.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/docsearch/">docsearch</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.com/projects/icb-scanpy/?fromdocs=icb-scanpy">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.com/builds/icb-scanpy/?fromdocs=icb-scanpy">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Getting set up &mdash; Scanpy 1.8.2 documentation</title>
+
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.css"/>
+
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/scanpy.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/typehints.css" type="text/css" />
+      <link rel="stylesheet" href="https://assets.readthedocs.com/css/badge_only.css" type="text/css" />
+    <link rel="canonical" href="https://scanpy.readthedocs.io/en/stable/dev/getting-set-up.html" />
+
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://assets.readthedocs.com/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => docsearch({
+    apiKey: 'fa4304eb95d2134997e3729553a674b2',
+    indexName: 'scanpy',
+    inputSelector: '#rtd-search-form > input[name="q"]',
+    algoliaOptions: { facetFilters: ['version:latest'] },
+    debug: false,
+  }))
+</script>
+
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tests" href="testing.html" />
+    <link rel="prev" title="Contributing code" href="code.html" />
+ 
+
+
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="https://assets.readthedocs.com/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.com", "build_date": "2021-11-03T17:53:42Z", "builder": "sphinx", "canonical_url": null, "commit": "8736fc3b", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-2", "language": "en", "page": "dev/getting-set-up", "programming_language": "py", "project": "icb-scanpy", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "scanpydoc", "user_analytics_code": "", "version": "stable"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.com/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/Scanpy_Logo_BrightFG.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage-principles.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external.html">External API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes/index.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">News</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contributing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code.html">Contributing code</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting set up</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-git">Working with <code class="docutils literal notranslate"><span class="pre">git</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#forking-and-cloning">Forking and cloning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pre-commit"><code class="docutils literal notranslate"><span class="pre">pre-commit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-branch-for-your-feature">Creating a branch for your feature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#open-a-pull-request">Open a pull request</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#development-environments">Development environments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external-tools.html">External tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ci.html">CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html">Making a release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioning.html">Versioning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scanpy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Contributing</a> &raquo;</li>
+      <li>Getting set up</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/theislab/scanpy/blob/8736fc3b02a6af3b7214481c2cf78a3f8f5e06bd/docs/dev/getting-set-up.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-set-up">
+<h1>Getting set up<a class="headerlink" href="#getting-set-up" title="Permalink to this headline"></a></h1>
+<section id="working-with-git">
+<h2>Working with <code class="docutils literal notranslate"><span class="pre">git</span></code><a class="headerlink" href="#working-with-git" title="Permalink to this headline"></a></h2>
+<p>This section of the docs covers our practices for working with <code class="docutils literal notranslate"><span class="pre">git</span></code> on our codebase. For more in-depth guides, we can recommend a few sources:</p>
+<p>For a more complete git tutorials we recommend checking out:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.atlassian.com/git/tutorials">Atlassian’s git tutorial</a> – Beginner friendly introductions to the git command line interface</p></li>
+<li><p><a class="reference external" href="https://docs.github.com/en/free-pro-team&#64;latest/github/getting-started-with-github/set-up-git">Setting up git for GitHub</a> – Configuring git to work with your GitHub user account</p></li>
+</ul>
+<section id="forking-and-cloning">
+<span id="id1"></span><h3>Forking and cloning<a class="headerlink" href="#forking-and-cloning" title="Permalink to this headline"></a></h3>
+<p>To get the code, and be able to push changes back to the main project, you’ll need to (1) fork the repository on github and (2) clone the repository to your local machine.</p>
+<p>This is very straight forward if you’re using <a class="reference external" href="https://cli.github.com">GitHub’s CLI</a>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ gh repo fork theislab/scanpy --clone --remote
+</pre></div>
+</div>
+<p>This will fork the repo to your github account, create a clone of the repo on your current machine, add our repository as a remote, and set the <code class="docutils literal notranslate"><span class="pre">master</span></code> development branch to track our repository.</p>
+<p>To do this manually, first make a fork of the repository by clicking the “fork” button on our main github package. Then, on your machine, run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone your fork of the repository (substitute in your username)</span>
+git clone https://github.com/<span class="o">{</span>your-username<span class="o">}</span>/scanpy.git
+<span class="c1"># Enter the cloned repository</span>
+<span class="nb">cd</span> scanpy
+<span class="c1"># Add our repository as a remote</span>
+git remote add upstream https://github.com/theislab/scanpy.git
+<span class="c1"># git branch --set-upstream-to &quot;upstream/master&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="pre-commit">
+<h3><code class="docutils literal notranslate"><span class="pre">pre-commit</span></code><a class="headerlink" href="#pre-commit" title="Permalink to this headline"></a></h3>
+<p>We use <a class="reference external" href="https://pre-commit.com">precommit</a> to run some styling checks in an automated way.
+We also test against these checks, so make sure you follow them!</p>
+<p>You can install pre-commit with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install pre-commit
+</pre></div>
+</div>
+<p>You can then install it to run while developing here with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pre-commit install
+</pre></div>
+</div>
+<p>From the root of the repo.</p>
+<p>If you choose not to run the hooks on each commit, you can run them manually with <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">run</span> <span class="pre">--files={your</span> <span class="pre">files}</span></code>.</p>
+</section>
+<section id="creating-a-branch-for-your-feature">
+<span id="creating-a-branch"></span><h3>Creating a branch for your feature<a class="headerlink" href="#creating-a-branch-for-your-feature" title="Permalink to this headline"></a></h3>
+<p>All development should occur in branches dedicated to the particular work being done.
+Additionally, unless you are a maintainer, all changes should be directed at the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.
+You can create a branch with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git checkout master                 <span class="c1"># Starting from the master branch</span>
+git pull                            <span class="c1"># Syncing with the repo</span>
+git checkout -b <span class="o">{</span>your-branch-name<span class="o">}</span>  <span class="c1"># Making and changing to the new branch</span>
+</pre></div>
+</div>
+</section>
+<section id="open-a-pull-request">
+<span id="open-a-pr"></span><h3>Open a pull request<a class="headerlink" href="#open-a-pull-request" title="Permalink to this headline"></a></h3>
+<p>When you’re ready to have your code reviewed, push your changes up to your fork:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first time you push the branch, you&#39;ll need to tell git where</span>
+git push --set-upstream origin <span class="o">{</span>your-branch-name<span class="o">}</span>
+<span class="c1"># After that, just use</span>
+git push
+</pre></div>
+</div>
+<p>And open a pull request by going to the main repo and clicking <em>New pull request</em>.
+GitHub is also pretty good about prompting you to open PRs for recently pushed branches.</p>
+<p>We’ll try and get back to you soon!</p>
+</section>
+</section>
+<section id="development-environments">
+<span id="dev-environments"></span><h2>Development environments<a class="headerlink" href="#development-environments" title="Permalink to this headline"></a></h2>
+<p>It’s recommended to do development work in an isolated environment.
+There are number of ways to do this, including conda environments, virtual environments, and virtual machines.</p>
+<p>We think the easiest is probably conda environments. Simply create a new environment with a supported version of python and make a <a class="reference internal" href="../installation.html#dev-install-instructions"><span class="std std-ref">development install</span></a> of <code class="docutils literal notranslate"><span class="pre">scanpy</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="code.html" class="btn btn-neutral float-left" title="Contributing code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="testing.html" class="btn btn-neutral float-right" title="Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Alex Wolf, Philipp Angerer, Fidel Ramirez, Isaac Virshup, Sergei Rybakov, Gokcen Eraslan, Tom White, Malte Luecken, Davide Cittaro, Tobias Callies, Marius Lange, Andrés R. Muñoz-Rojas..
+      <span class="commit">Revision <code>8736fc3b</code>.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/docsearch/">docsearch</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.com/projects/icb-scanpy/?fromdocs=icb-scanpy">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.com/builds/icb-scanpy/?fromdocs=icb-scanpy">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

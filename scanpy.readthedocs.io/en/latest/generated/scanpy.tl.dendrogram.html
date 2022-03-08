@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>scanpy.tl.dendrogram &mdash; Scanpy 1.9.0.dev72+g7b22b756 documentation</title>
+
+<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.css"/>
+
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/scanpy.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/typehints.css" type="text/css" />
+      <link rel="stylesheet" href="https://assets.readthedocs.com/css/badge_only.css" type="text/css" />
+    <link rel="canonical" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.dendrogram.html" />
+
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://assets.readthedocs.com/javascript/readthedocs-doc-embed.js"></script>
+    <script src="../_static/js/theme.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6/dist/cdn/docsearch.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => docsearch({
+    apiKey: 'fa4304eb95d2134997e3729553a674b2',
+    indexName: 'scanpy',
+    inputSelector: '#rtd-search-form > input[name="q"]',
+    algoliaOptions: {
+      facetFilters: ['version:latest'],
+      hitsPerPage: 10,
+    },
+    debug: false,
+  }))
+</script>
+
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="scanpy.tl.dpt" href="scanpy.tl.dpt.html" />
+    <link rel="prev" title="scanpy.tl.louvain" href="scanpy.tl.louvain.html" />
+ 
+
+
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="https://assets.readthedocs.com/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.com", "build_date": "2022-03-03T15:00:17Z", "builder": "sphinx", "canonical_url": null, "commit": "7b22b756", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-2", "language": "en", "page": "generated/scanpy.tl.dendrogram", "programming_language": "py", "project": "icb-scanpy", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "scanpydoc", "user_analytics_code": "", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.com/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html">
+            <img src="../_static/Scanpy_Logo_BrightFG.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                latest
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage-principles.html">Usage Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-scanpy.pp">Preprocessing: <code class="docutils literal notranslate"><span class="pre">pp</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#module-scanpy.tl">Tools: <code class="docutils literal notranslate"><span class="pre">tl</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../api.html#embeddings">Embeddings</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#clustering-and-trajectory-inference">Clustering and trajectory inference</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="scanpy.tl.leiden.html">scanpy.tl.leiden</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanpy.tl.louvain.html">scanpy.tl.louvain</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">scanpy.tl.dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanpy.tl.dpt.html">scanpy.tl.dpt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scanpy.tl.paga.html">scanpy.tl.paga</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#data-integration">Data integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#marker-genes">Marker genes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#gene-scores-cell-cycle">Gene scores, Cell cycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#simulations">Simulations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-scanpy.pl">Plotting: <code class="docutils literal notranslate"><span class="pre">pl</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#reading">Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-scanpy.get">Get object from <code class="docutils literal notranslate"><span class="pre">AnnData</span></code>: <code class="docutils literal notranslate"><span class="pre">get</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-scanpy.queries">Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-scanpy.metrics">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#id37">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#module-scanpy.datasets">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#deprecated-functions">Deprecated functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../external.html">External API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes/index.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">News</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/index.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Scanpy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api.html">API</a> &raquo;</li>
+      <li>scanpy.tl.dendrogram</li>
+      <li class="wy-breadcrumbs-aside">
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/theislab/scanpy/tree/master/scanpy/tools/_dendrogram.py#L16-L163" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scanpy-tl-dendrogram">
+<h1>scanpy.tl.dendrogram<a class="headerlink" href="#scanpy-tl-dendrogram" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="scanpy.tl.dendrogram">
+<span class="sig-prename descclassname"><span class="pre">scanpy.tl.</span></span><span class="sig-name descname"><span class="pre">dendrogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groupby</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_rep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cor_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pearson'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linkage_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'complete'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimal_ordering</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_added</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scanpy.tl.dendrogram" title="Permalink to this definition"></a></dt>
+<dd><p>Computes a hierarchical clustering for the given <code class="docutils literal notranslate"><span class="pre">groupby</span></code> categories.</p>
+<p>By default, the PCA representation is used unless <code class="docutils literal notranslate"><span class="pre">.X</span></code>
+has less than 50 variables.</p>
+<p>Alternatively, a list of <code class="docutils literal notranslate"><span class="pre">var_names</span></code> (e.g. genes) can be given.</p>
+<p>Average values of either <code class="docutils literal notranslate"><span class="pre">var_names</span></code> or components are used
+to compute a correlation matrix.</p>
+<p>The hierarchical clustering can be visualized using
+<a class="reference internal" href="scanpy.pl.dendrogram.html#scanpy.pl.dendrogram" title="scanpy.pl.dendrogram"><code class="xref py py-func docutils literal notranslate"><span class="pre">scanpy.pl.dendrogram()</span></code></a> or multiple other visualizations that can
+include a dendrogram: <a class="reference internal" href="scanpy.pl.matrixplot.html#scanpy.pl.matrixplot" title="scanpy.pl.matrixplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">matrixplot()</span></code></a>,
+<a class="reference internal" href="scanpy.pl.heatmap.html#scanpy.pl.heatmap" title="scanpy.pl.heatmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">heatmap()</span></code></a>, <a class="reference internal" href="scanpy.pl.dotplot.html#scanpy.pl.dotplot" title="scanpy.pl.dotplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">dotplot()</span></code></a>,
+and <a class="reference internal" href="scanpy.pl.stacked_violin.html#scanpy.pl.stacked_violin" title="scanpy.pl.stacked_violin"><code class="xref py py-func docutils literal notranslate"><span class="pre">stacked_violin()</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The computation of the hierarchical clustering is based on predefined
+groups and not per cell. The correlation matrix is computed using by
+default pearson but other methods are available.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>adata</strong> : <a class="reference external" href="https://anndata.readthedocs.io/en/stable/anndata.AnnData.html#anndata.AnnData" title="(in anndata v0.7.7.dev1+g33006dc)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></a></dt><dd><p>Annotated data matrix</p>
+</dd>
+<dt><strong>n_pcs</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>] (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>Use this many PCs. If <code class="docutils literal notranslate"><span class="pre">n_pcs==0</span></code> use <code class="docutils literal notranslate"><span class="pre">.X</span></code> if <code class="docutils literal notranslate"><span class="pre">use_rep</span> <span class="pre">is</span> <span class="pre">None</span></code>.</p>
+</dd>
+<dt><strong>use_rep</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>] (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>Use the indicated representation. <code class="docutils literal notranslate"><span class="pre">'X'</span></code> or any key for <code class="docutils literal notranslate"><span class="pre">.obsm</span></code> is valid.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the representation is chosen automatically:
+For <code class="docutils literal notranslate"><span class="pre">.n_vars</span></code> &lt; 50, <code class="docutils literal notranslate"><span class="pre">.X</span></code> is used, otherwise ‘X_pca’ is used.
+If ‘X_pca’ is not present, it’s computed with default parameters.</p>
+</dd>
+<dt><strong>var_names</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]] (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>List of var_names to use for computing the hierarchical clustering.
+If <code class="docutils literal notranslate"><span class="pre">var_names</span></code> is given, then <code class="docutils literal notranslate"><span class="pre">use_rep</span></code> and <code class="docutils literal notranslate"><span class="pre">n_pcs</span></code> is ignored.</p>
+</dd>
+<dt><strong>use_raw</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>] (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>Only when <code class="docutils literal notranslate"><span class="pre">var_names</span></code> is not None.
+Use <code class="docutils literal notranslate"><span class="pre">raw</span></code> attribute of <code class="docutils literal notranslate"><span class="pre">adata</span></code> if present.</p>
+</dd>
+<dt><strong>cor_method</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">'pearson'</span></code>)</dt><dd><p>correlation method to use.
+Options are ‘pearson’, ‘kendall’, and ‘spearman’</p>
+</dd>
+<dt><strong>linkage_method</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">'complete'</span></code>)</dt><dd><p>linkage method to use. See <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.8.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a>
+for more information.</p>
+</dd>
+<dt><strong>optimal_ordering</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</dt><dd><p>Same as the optimal_ordering argument of <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage" title="(in SciPy v1.8.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.cluster.hierarchy.linkage()</span></code></a>
+which reorders the linkage matrix so that the distance between successive
+leaves is minimal.</p>
+</dd>
+<dt><strong>key_added</strong> : <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>] (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</dt><dd><p>By default, the dendrogram information is added to
+<code class="docutils literal notranslate"><span class="pre">.uns[f'dendrogram_{groupby}']</span></code>.
+Notice that the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> information is added to the dendrogram.</p>
+</dd>
+<dt><strong>inplace</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, adds dendrogram information to <code class="docutils literal notranslate"><span class="pre">adata.uns[key_added]</span></code>,
+else this function returns the information.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>If <code class="docutils literal notranslate"><span class="pre">inplace=False</span></code>, returns dendrogram information,
+else <code class="docutils literal notranslate"><span class="pre">adata.uns[key_added]</span></code> is updated with it.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">pbmc68k_reduced</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">dendrogram</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dendrogram</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C1QA&#39;</span><span class="p">,</span> <span class="s1">&#39;PSAP&#39;</span><span class="p">,</span> <span class="s1">&#39;CD79A&#39;</span><span class="p">,</span> <span class="s1">&#39;CD79B&#39;</span><span class="p">,</span> <span class="s1">&#39;CST3&#39;</span><span class="p">,</span> <span class="s1">&#39;LYZ&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">dotplot</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;bulk_labels&#39;</span><span class="p">,</span> <span class="n">dendrogram</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="scanpy.tl.louvain.html" class="btn btn-neutral float-left" title="scanpy.tl.louvain" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scanpy.tl.dpt.html" class="btn btn-neutral float-right" title="scanpy.tl.dpt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, the Scanpy development team..
+      <span class="commit">Revision <code>7b22b756</code>.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.com/projects/icb-scanpy/?fromdocs=icb-scanpy">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.com/builds/icb-scanpy/?fromdocs=icb-scanpy">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
