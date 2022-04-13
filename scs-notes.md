@@ -42,7 +42,7 @@ issue with this method is that most of the droplets don't have anything and only
 
 you can increase the [] of beads and cells, but you would have a doublet rate that's very high 
 
-> doublets are bad because tyou have multiple cells per droplet/bead
+> doublets are bad because you have multiple cells per droplet/bead
 
 ## 10x Genomics 
 
@@ -52,7 +52,7 @@ barcoded beads + cell/reagents -> oil -> *emulsion*
 - in drops there are already RT within the droplets 
 - at the end you break the emulson, amplify cDNA, and construct the library to get the sequence 
 
-only takes 15 minutes and the chip can do 200k cells at once (breaking emultion takes half a day)
+only takes 15 minutes and the chip can do 200k cells at once (breaking emulsion takes half a day)
 
 ## Microwells - parallel scs without droplets 
 - seqwell

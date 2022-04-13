@@ -49,6 +49,10 @@ you can get back anndata of the object in `.raw` by calling `.raw.to_adata()` (t
     - neighbor search efficiency of this relies on UMAP → method for estimating *connectivities* of data points (`method==’umap’`) if `method=='gauss'` then computed according to a different algorithm ([[Coifman05]](https://scanpy.readthedocs.io/en/latest/references.html#coifman05) [[Haghverdi16]](https://scanpy.readthedocs.io/en/latest/references.html#haghverdi16))
 
 
+### `.external.pp.bbknn`
+Batch-balanced kNN -- alters the kNN procedure to identify each cell's top neighbors in each batch separately instead of the entire cell bool with no accounting for batch
+used as an alternative to `neighbors()`. 
+
 ## Plotting (`pl`)
 makes violin plots — wraps `seaborn.violinplot()` for AnnData 
 

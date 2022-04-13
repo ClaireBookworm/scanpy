@@ -76,3 +76,13 @@ AnnData object with n obs x n vars 1004 x 12220
 `obsm` contains other dimensions of objects; `varm` components; `layers` same dimensions of adata object, count of every molecule (x matrix might have different)
 
 downsampling to: `sc.pp.subsample(adata,n_obs=5000)`
+
+```
+mkdir /broad/hptmp/cwang
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+export PATH=$PATH:/broad/hptmp/cwang
+export PATH=$PATH:/home/unix/clwang
+export PATH=$PATH:/home/unix/clwang/.local/bin
+python get-pip.py
+pip install numpy 
+```
